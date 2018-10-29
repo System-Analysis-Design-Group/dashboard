@@ -11,5 +11,5 @@ CREATE TABLE IF NOT EXISTS order_goods (
   order_id INT UNSIGNED NOT NULL,
   goods_id INT UNSIGNED NOT NULL,
   num INT UNSIGNED NOT NULL,
-  unit_price FLOAT 
+  unit_price FLOAT NOT NULL
 ) ENGINE=InnoDB;

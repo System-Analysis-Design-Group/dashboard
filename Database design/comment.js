@@ -1,4 +1,0 @@
-var comment = {
-  userId: "string",
-
-}
