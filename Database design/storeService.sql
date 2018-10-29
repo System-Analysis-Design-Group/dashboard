@@ -1,0 +1,54 @@
+CREATE TABLE IF NOT EXISTS store (
+  id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  user_id INT UNSIGNED NOT NULL,
+  `name` VARCHAR(64) CHARACTER SET utf8 NOT NULL,
+  `address` VARCHAR(255) CHARACTER SET utf8 DEFAULT '', -- 商店地址(思考是否需要加上坐标)
+  longitude FLOAT NOT NULL, -- 经度
+  latitude FLOAT NOT NULL, -- 纬度
+  `type` VARCHAR(64) CHARACTER SET utf8 NOT NULL, -- 商店类型，例如中式简餐、炸鸡炸串等
+  cover VARCHAR(255) CHARACTER SET utf8 DEFAULT '', -- 封面
+  PRIMARY KEY (id)
+) ENGINE=InnoDB;
+
+-- 地址是否需要单独拆分
+-- CREATE TABLE IF NOT EXISTS address (
+--   id INT UNSIGNED NOT NULL AUTO_INCREMENT
+-- ) ENGINE=InnoDB;
+
+CREATE TABLE IF NOT EXISTS store_tag_table (
+  store_id INT UNSIGNED NOT NULL,
+  store_tag_id INT UNSIGNED NOT NULL
+) ENGINE=InnoDB;
+
+-- 商店标签：超市、生鲜、支持自取、极速退款、青山公益商家什么的
+CREATE TABLE IF NOT EXISTS store_tag (
+  id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(64) CHARACTER SET utf8 NOT NULL,
+  description VARCHAR(64) CHARACTER SET utf8 DEFAULT '',
+  PRIMARY KEY (id)
+) ENGINE=InnoDB;
+
+-- 商品类型：套餐、汤类、酱料等自定义
+CREATE TABLE IF NOT EXISTS goods_type (
+  id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  store_id INT UNSIGNED NOT NULL,
+  `name` VARCHAR(64) CHARACTER SET utf8 NOT NULL,
+  description VARCHAR(64) CHARACTER SET utf8 DEFAULT '',
+  PRIMARY KEY (id)
+) ENGINE=InnoDB;
+
+CREATE TABLE IF NOT EXISTS goods (
+  id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  store_id INT UNSIGNED NOT NULL,
+  type_id INT UNSIGNED NOT NULL,
+  `name` VARCHAR(64) CHARACTER SET utf8 NOT NULL,
+  description VARCHAR(255) CHARACTER SET utf8 DEFAULT '',
+  original_price FLOAT NOT NULL,
+  current_price FLOAT NOT NULL,
+  PRIMARY KEY (id)
+) ENGINE=InnoDB;
+
+CREATE TABLE IF NOT EXISTS goods_imgs (
+  goods_id INT UNSIGNED NOT NULL,
+  path VARCHAR(255) CHARACTER SET utf8 DEFAULT ''
+) ENGINE=InnoDB;
