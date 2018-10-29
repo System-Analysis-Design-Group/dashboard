@@ -2,6 +2,7 @@ CREATE TABLE IF NOT EXISTS store (
   id INT UNSIGNED NOT NULL AUTO_INCREMENT,
   user_id INT UNSIGNED NOT NULL,
   `name` VARCHAR(64) CHARACTER SET utf8 NOT NULL,
+  phone CHAR(32) NOT NULL,
   `address` VARCHAR(255) CHARACTER SET utf8 DEFAULT '', -- 商店地址(思考是否需要加上坐标)
   longitude FLOAT NOT NULL, -- 经度
   latitude FLOAT NOT NULL, -- 纬度
@@ -20,7 +21,7 @@ CREATE TABLE IF NOT EXISTS store_tag_table (
   store_tag_id INT UNSIGNED NOT NULL
 ) ENGINE=InnoDB;
 
--- 商店标签：超市、生鲜、支持自取、极速退款、青山公益商家什么的
+-- 商店标签：超市、生鲜、支持自取、极速退款、青山公益商家、可开发票、跨天预订什么的
 CREATE TABLE IF NOT EXISTS store_tag (
   id INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(64) CHARACTER SET utf8 NOT NULL,
