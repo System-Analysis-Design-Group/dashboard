@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>8</zoom_level>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>160</x>
+      <y>248</y>
+      <w>248</w>
+      <h>208</h>
+    </coordinates>
+    <panel_attributes>「顾客-商家」账户管理服务
+valign=top</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>176</x>
+      <y>328</y>
+      <w>216</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>账户信息
+valign=center</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>176</x>
+      <y>368</y>
+      <w>216</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>Redis
+valign=center</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>176</x>
+      <y>408</y>
+      <w>216</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>MySQL
+valign=center</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>432</x>
+      <y>248</y>
+      <w>248</w>
+      <h>208</h>
+    </coordinates>
+    <panel_attributes>平台社区服务
+valign=top</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>448</x>
+      <y>368</y>
+      <w>216</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>MongoDB
+valign=center</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>528</x>
+      <y>288</y>
+      <w>64</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>商家评论
+CRUD
+valign=center</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>704</x>
+      <y>248</y>
+      <w>248</w>
+      <h>208</h>
+    </coordinates>
+    <panel_attributes>订单管理服务
+valign=top</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>720</x>
+      <y>288</y>
+      <w>96</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>订单CRUD
+valign=center</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>160</x>
+      <y>480</y>
+      <w>248</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>K8s - AccountsService
+valign=center</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>432</x>
+      <y>480</y>
+      <w>248</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>K8s - CommunityService
+valign=center</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>704</x>
+      <y>480</y>
+      <w>248</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>K8s - OrdersService
+valign=center</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>832</x>
+      <y>288</y>
+      <w>104</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>接收/决绝
+订单
+valign=center</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>720</x>
+      <y>368</y>
+      <w>216</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>MySQL
+valign=center</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>160</x>
+      <y>592</y>
+      <w>248</w>
+      <h>208</h>
+    </coordinates>
+    <panel_attributes>菜单管理服务
+valign=top</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>176</x>
+      <y>632</y>
+      <w>216</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>菜式 CRUD
+valign=center</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>176</x>
+      <y>712</y>
+      <w>216</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>MySQL
+valign=center</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>176</x>
+      <y>280</y>
+      <w>96</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>权限管理
+valign=center</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>280</x>
+      <y>280</y>
+      <w>112</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>账户
+CRUD
+valign=center</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>448</x>
+      <y>288</y>
+      <w>72</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>菜式评论
+CRUD
+valign=center</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>600</x>
+      <y>288</y>
+      <w>64</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>商家回应
+CRUD
+valign=center</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>160</x>
+      <y>824</y>
+      <w>248</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>K8s - MenuService
+valign=center</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>432</x>
+      <y>592</y>
+      <w>248</w>
+      <h>208</h>
+    </coordinates>
+    <panel_attributes>数据分析服务
+valign=top</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>448</x>
+      <y>632</y>
+      <w>216</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>趋势预测
+valign=center</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>448</x>
+      <y>712</y>
+      <w>216</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>数据采集
+valign=center</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>432</x>
+      <y>824</y>
+      <w>248</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>K8s - DAService
+valign=center</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
