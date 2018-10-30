@@ -4,8 +4,8 @@
 
 **注:** 按照时间顺序填写，新的排在上面
 
-| 修改时间 | 文件 | 修改人 | 修改内容 |
-| --- | --- | --- | --- |
-| 20181030 | readme | 耀勇 | 增加文档记录和文档修改记录 |
-| 20181023 | 系统用例图：use_case_customer, use_case_shpowner| 润浩 | 去掉餐厅点餐需求 |
-| 20181022 | 系统用例图：use_case_customer, use_case_shpowner | 耀勇 | 初步需求构想 |
+| 修改时间 | 文档类型 | 文件名 | 修改人 | 修改内容 |
+| --- | --- | --- | --- | --- |
+| 20181030 | readme| readme.md | 耀勇 | 增加文档记录和文档修改记录 |
+| 20181023 | 系统用例图 | use_case_customer, use_case_shpowner| 润浩 | 去掉餐厅点餐需求 |
+| 20181022 | 系统用例图 | use_case_customer, use_case_shpowner | 耀勇 | 初步需求构想 |
