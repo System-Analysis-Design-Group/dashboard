@@ -58,13 +58,21 @@
     {
     "username": "James"
     }
-        - 返回
+        - 成功返回
     {
     "isSuccess": {
         "status": 200, 
         "detail": "done"
     }
     }
+    
+        - 失败返回
+    {
+    "isSuccess": {
+        "status": 400, 
+        "detail": "failed"
+    }
+    }    
     - PUT 修改一个账户的信息
 
     
@@ -76,7 +84,7 @@
     {
     "username":"James"
     }
-        - 返回
+        - 成功返回
 {
     "info": {
         "role": [
@@ -90,6 +98,13 @@
     }
 }
     
+        - 失败返回
+    {
+    "isSuccess": {
+        "status": 400, 
+        "detail": "failed"
+    }
+    }   
     
     
     - POST 给某个用户新建权限
@@ -98,15 +113,20 @@
     "username": "James", 
     "role": "admin"
 }
-        - 返回
+        - 失败返回
      {
     "isSuccess": {
         "status": 400, 
         "detail": "failed"
     }
 }   
-    
-        
+        - 成功返回
+         {
+    "isSuccess": {
+        "status": 200, 
+        "detail": "done"
+    }
+    }   
     
     - DELETE 给某个用户删除权限
     
@@ -116,7 +136,16 @@
     "username": "James", 
     "role": "admin"
 }
-        - 返回
+
+        - 成功返回
+        
+            {
+    "isSuccess": {
+        "status": 200, 
+        "detail": "done"
+    }
+    }
+        - 失败返回
      {
     "isSuccess": {
         "status": 400, 
@@ -142,8 +171,14 @@
     "latitude": 231.231, 
     "cover": ""
     }
-    
-        - 返回
+        - 成功返回
+            {
+    "isSuccess": {
+        "status": 200, 
+        "detail": "done"
+    }
+    }
+        - 失败返回
      {
     "isSuccess": {
         "status": 400, 
@@ -159,7 +194,7 @@
     "name": "store1"
     }
     
-        - 返回
+        - 成功返回
     {
     "info": {
         "number": 3, 
@@ -183,10 +218,16 @@
     "name": "store1", 
     "comment": "fucking delicious"
 }        
+        - 成功返回
+            {
+    "isSuccess": {
+        "status": 200, 
+        "detail": "done"
+    }
+    }
         
         
-        
-        - 返回
+        - 失败返回
 {
     "isSuccess": {
         "status": 400, 
