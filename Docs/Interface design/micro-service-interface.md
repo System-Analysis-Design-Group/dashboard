@@ -29,9 +29,9 @@
 - /Accounts/{id}
     - GET 获取某个账户信息
         - 发送
-{
+    {
     "username": "James"
-}
+    }
         - 成功返回
     {
     "info": {
@@ -85,7 +85,7 @@
     "username":"James"
     }
         - 成功返回
-{
+    {
     "info": {
         "role": [
             "default", 
@@ -96,7 +96,7 @@
         "status": 200, 
         "detail": "done"
     }
-}
+    }
     
         - 失败返回
     {
@@ -109,19 +109,19 @@
     
     - POST 给某个用户新建权限
         - 发送
-{
+    {
     "username": "James", 
     "role": "admin"
-}
+    }
         - 失败返回
      {
     "isSuccess": {
         "status": 400, 
         "detail": "failed"
     }
-}   
+    }   
         - 成功返回
-         {
+    {
     "isSuccess": {
         "status": 200, 
         "detail": "done"
@@ -132,14 +132,13 @@
     
     
         - 发送
-{
+    {
     "username": "James", 
     "role": "admin"
-}
+    }
 
-        - 成功返回
-        
-            {
+        - 成功返回 
+    {
     "isSuccess": {
         "status": 200, 
         "detail": "done"
@@ -151,13 +150,31 @@
         "status": 400, 
         "detail": "failed"
     }
-}   
+    }   
     
     
     - PUT 修改一个账户的权限
 
 - /stores
     - GET 所有商家
+        - 发送
+    {
+    "type": [
+        "Chinese", 
+        "snack"
+    ]
+    }
+        - 返回
+    {
+    "store_id": [
+        1, 
+        2, 
+        3, 
+        4, 
+        5
+    ]
+    }
+    
     
     - POST 新建商家
         - 发送
@@ -184,7 +201,7 @@
         "status": 400, 
         "detail": "failed"
     }
-}       
+    }       
 
 - /stores/{id}/comments
     - GET 获取某个商家所有评论
@@ -208,7 +225,14 @@
         "status": 200, 
         "detail": "done"
     }
-}
+    }
+        - 失败返回
+    {
+    "isSuccess": {
+        "status": 400, 
+        "detail": "failed"
+    }
+    }       
     
     
     
@@ -260,6 +284,7 @@
         "detail": "failed"
     }
 }  
+
     - DELETE 删除某个商家的评论
         - 发送
 {
@@ -302,10 +327,65 @@
         "detail": "updated"
     }
 } 
+
 - /stores/{id}/dish/{id}/comments
     - GET 获取某个商家的某个菜式的评论
+        - 请求
+    {
+    "store_id": 123, 
+    "good_id": 123
+    }
+        -成功返回
+{
+    "isSuccess": {
+        "status": 200, 
+        "detail": "updated"
+    }, 
+    "num": 3, 
+    "comment": [
+        "abc", 
+        "def", 
+        "abcd"
+    ]
+}
+        - 失败返回
+{
+    "isSuccess": {
+        "status": 400, 
+        "detail": "failed"
+    }
+}      
+    
+    
+    
     - DELETE 删除某个商家的某个菜式的评论
+        - 请求
+    {
+    "store_id": 123, 
+    "good_id": 123
+    }    
+        -成功返回
+{
+    "isSuccess": {
+        "status": 200, 
+        "detail": "deleted"
+    }
+}
+        - 失败返回
+{
+    "isSuccess": {
+        "status": 400, 
+        "detail": "failed"
+    }
+}          
+    
+    
     - PUT 更新某个商家的某个菜式的评论
+
+
+
+
+
 
 - /orders
     - POST 新建订单
