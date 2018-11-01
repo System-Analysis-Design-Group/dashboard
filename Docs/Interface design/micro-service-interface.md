@@ -129,17 +129,138 @@
 
 - /stores
     - GET 所有商家
+    
     - POST 新建商家
+        - 发送
+    {
+    "name": "store1", 
+    "phone": "123456789", 
+    "type": "Chinese food", 
+    "user_id": 123, 
+    "address": "Wall Street", 
+    "longitude": 123.123, 
+    "latitude": 231.231, 
+    "cover": ""
+    }
+    
+        - 返回
+     {
+    "isSuccess": {
+        "status": 400, 
+        "detail": "failed"
+    }
+}       
 
 - /stores/{id}/comments
     - GET 获取某个商家所有评论
+    
+        - 发送
+    {
+    "name": "store1"
+    }
+    
+        - 返回
+    {
+    "info": {
+        "number": 3, 
+        "comment": [
+            "abcd", 
+            "efgh", 
+            "ijk"
+        ]
+    }, 
+    "isSuccess": {
+        "status": 200, 
+        "detail": "done"
+    }
+}
+    
+    
+    
     - POST 给某个商家新建评论
+        - 发送
+{
+    "name": "store1", 
+    "comment": "fucking delicious"
+}        
+        
+        
+        
+        - 返回
+{
+    "isSuccess": {
+        "status": 400, 
+        "detail": "failed"
+    }
+}    
+    
 
 - /stores/{id}/comments/{id}
     - GET 获取某个商家的某个评论
-    - DELETE 删除某个商家的评论
-    - PUT 更新某个商家的评论
+        - 发送
+{
+    "name": "store1", 
+    "comment_id": 123
+}
 
+        - 成功返回
+{
+    "comment": "qnmb", 
+    "isSuccess": {
+        "status": 200, 
+        "detail": "done"
+    }
+}
+
+        - 失败返回
+{
+    "isSuccess": {
+        "status": 400, 
+        "detail": "failed"
+    }
+}  
+    - DELETE 删除某个商家的评论
+        - 发送
+{
+    "name": "store1", 
+    "comment_id": 123
+}    
+        - 失败返回
+{
+    "isSuccess": {
+        "status": 400, 
+        "detail": "failed"
+    }
+}  
+        - 成功返回
+{
+    "isSuccess": {
+        "status": 200, 
+        "detail": "deleted"
+    }
+} 
+
+    - PUT 更新某个商家的评论
+        - 发送
+{
+    "name": "store1", 
+    "comment_id": 123,
+    "content":"new comment"
+}
+        - 失败返回
+{
+    "isSuccess": {
+        "status": 400, 
+        "detail": "failed"
+    }
+}  
+        - 成功返回
+{
+    "isSuccess": {
+        "status": 200, 
+        "detail": "updated"
+    }
+} 
 - /stores/{id}/dish/{id}/comments
     - GET 获取某个商家的某个菜式的评论
     - DELETE 删除某个商家的某个菜式的评论
