@@ -1,15 +1,130 @@
 - /Accounts
     - POST 新建一个账户
-
+        - 发送
+    {
+       "username": "James", 
+        "password": "abcd"
+    }
+    
+        - 成功返回
+    {
+    "info": {
+        "id": 123, 
+        "role": "default"
+    }, 
+    "isSuccess": {
+        "status": 200, 
+        "detail": "done"
+    }
+    }
+        - 失败返回
+    {
+    "isSuccess": {
+        "status": 400, 
+        "detail": "username is used."
+    }
+    }
+    
+    
 - /Accounts/{id}
     - GET 获取某个账户信息
+        - 发送
+{
+    "username": "James"
+}
+        - 成功返回
+    {
+    "info": {
+        "id": 123, 
+        "username":"James",
+        "role": "default"
+    }, 
+    "isSuccess": {
+        "status": 200, 
+        "detail": "done"
+    }
+    }
+        - 失败返回
+    {
+    "isSuccess": {
+        "status": 400, 
+        "detail": "failed"
+    }
+    }
+    
+    
     - DELETE 删除一个账户
+        - 发送
+    {
+    "username": "James"
+    }
+        - 返回
+    {
+    "isSuccess": {
+        "status": 200, 
+        "detail": "done"
+    }
+    }
     - PUT 修改一个账户的信息
+
+    
+    
 
 - /Accounts/{id}/Permission
     - GET 获取某个账户权限
+        - 发送
+    {
+    "username":"James"
+    }
+        - 返回
+{
+    "info": {
+        "role": [
+            "default", 
+            "admin"
+        ]
+    }, 
+    "isSuccess": {
+        "status": 200, 
+        "detail": "done"
+    }
+}
+    
+    
+    
     - POST 给某个用户新建权限
+        - 发送
+{
+    "username": "James", 
+    "role": "admin"
+}
+        - 返回
+     {
+    "isSuccess": {
+        "status": 400, 
+        "detail": "failed"
+    }
+}   
+    
+        
+    
     - DELETE 给某个用户删除权限
+    
+    
+        - 发送
+{
+    "username": "James", 
+    "role": "admin"
+}
+        - 返回
+     {
+    "isSuccess": {
+        "status": 400, 
+        "detail": "failed"
+    }
+}   
+    
+    
     - PUT 修改一个账户的权限
 
 - /stores
