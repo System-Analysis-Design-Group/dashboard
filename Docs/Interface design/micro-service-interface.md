@@ -70,15 +70,115 @@
     * PUT 更新某个商家的某个菜式的评论
 * /orders
     * POST 新建订单
-        * 请求
+        * 请求{
+    "user_id": 123, 
+    "sotre_id": 123, 
+    "num_good": 3, 
+    "goods_info": [
+        {
+            "good_id": 1, 
+            "num": 2, 
+            "unit_price": 10
+        }, 
+        {
+            "good_id": 2, 
+            "num": 2, 
+            "unit_price": 10
+        }, 
+        {
+            "good_id": 3, 
+            "num": 2, 
+            "unit_price": 10
+        }
+    ]
+}
+        * 成功返回 { "isSuccess": { "status": 200, "detail": "created" } }
+        * 失败返回 { "isSuccess": { "status": 400, "detail": "failed" } }
 * /orders/{id}
     * GET 获取某个订单的信息
+      - 请求
+      {
+      ord_id:123
+      }
+      - 成功返回
+      {
+    "user_id": 123, 
+    "sotre_id": 123, 
+    "status": "paid", 
+    "num_good": 3, 
+    "address": 123, 
+    "goods_info": [
+        {
+            "good_id": 1, 
+            "num": 2, 
+            "unit_price": 10
+        }, 
+        {
+            "good_id": 2, 
+            "num": 2, 
+            "unit_price": 10
+        }, 
+        {
+            "good_id": 3, 
+            "num": 2, 
+            "unit_price": 10
+        }
+    ]
+}
+    * 失败返回 { "isSuccess": { "status": 400, "detail": "failed" } }
+        
+        
     * DELETE 删除某个订单
+        - 请求
+      {
+      ord_id:123
+      }    
+        * 成功返回 { "isSuccess": { "status": 200, "detail": "deleted" } }
+        * 失败返回 { "isSuccess": { "status": 400, "detail": "failed" } }      
+    
+    
     * PUT 更新某个订单
 * /dishes
     * POST 新建菜式
+      - 请求
+    {
+    "name": "jj", 
+    "store_id": 123, 
+    "type_id": 123, 
+    "description": "good", 
+    "or_price": 22, 
+    "curr_price": 20, 
+    "image_path": "/images/xxx.jpg"
+}
+
+      }    
+        * 成功返回 { "isSuccess": { "status": 200, "detail": "created" } }
+        * 失败返回 { "isSuccess": { "status": 400, "detail": "failed" } }
 * /dishes/{id}
     * GET 获取某个菜式的信息
+      - 请求
+    {
+    "id": 123, 
+    "store_id": 123, 
+}
+      * 成功返回 {     
+        "name": "jj", 
+    "store_id": 123, 
+    "type_id": 123, 
+    "description": "good", 
+    "or_price": 22, 
+    "curr_price": 20, 
+    "image_path": "/images/xxx.jpg",
+    "isSuccess": { "status": 200, "detail": "created" } }
+      * 失败返回 { "isSuccess": { "status": 400, "detail": "failed" } }
     * DELETE 删除某个菜式
+      - 请求
+    {
+    "id": 123, 
+    "store_id": 123, 
+}    
+      * 成功返回 { "isSuccess": { "status": 200, "detail": "deleted" } }
+      * 失败返回 { "isSuccess": { "status": 400, "detail": "failed" } }     
+    
     * PUT 更新某个菜式
 
