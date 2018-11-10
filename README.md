@@ -1,6 +1,6 @@
 * # <a name="ox7rhq"></a>「吃点啥」项目文档
 [readme]:./README.md
-[uidesign]:./Docs/uidesign/uidesign.zip
+[uidesign]:./Docs/uidesign/uidesign.rar
 
 ## 文档修改记录
     
