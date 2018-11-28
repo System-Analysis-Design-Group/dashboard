@@ -36,7 +36,7 @@
         * 发送 { "name": "KFC", "phone": "123456789", "type": "Chinese food", "user\_id": 123, "address": "Wall Street", "longitude": 123.123, "latitude": 231.231, "cover": "" }
         * 成功返回 { "isSuccess": { "status": 200, "detail": "done" } }
         * 失败返回 { "isSuccess": { "status": 400, "detail": "failed" } }
-* /stores/{id}/comments
+* /comments/store/{store_id}
     * GET 获取某个商家所有评论
         * 发送 { "store_id": 123 }
         * 成功返回 { "info": { "number": 3, "comment": [ "abcd", "efgh", "ijk" ] }, "isSuccess": { "status": 200, "detail": "done" } }
@@ -45,7 +45,7 @@
         * 发送 { "store_id": 123, "comment": "fucking delicious" }
         * 成功返回 { "isSuccess": { "status": 200, "detail": "done" } }
         * 失败返回 { "isSuccess": { "status": 400, "detail": "failed" } }
-* /stores/{id}/comments/{id}
+* /comments/store/{store_id}/{comment_id}
     * GET 获取某个商家的某个评论
         * 发送 { "store_id": 123, "comment_id": 123 }
         * 成功返回 { "comment": "qnmb", "isSuccess": { "status": 200, "detail": "done" } }
@@ -58,7 +58,7 @@
         * 发送 { "store_id": 123, "comment_id": 123, "content":"new comment" }
         * 失败返回 { "isSuccess": { "status": 400, "detail": "failed" } }
         * 成功返回 { "isSuccess": { "status": 200, "detail": "updated" } }
-* /stores/{id}/dish/{id}/comments
+* /comments/dish/{store_id}/{dish_id}
     * GET 获取某个商家的某个菜式的评论
         * 请求 { "store_id": 123, "good_id": 123 } 
         * 成功返回 { "isSuccess": { "status": 200, "detail": "updated" }, "num": 3, "comment": [ "abc", "def", "abcd" ] }
