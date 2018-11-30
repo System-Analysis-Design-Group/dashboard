@@ -1,9 +1,9 @@
-* /Accounts
+* /Accounts/Customer
     * POST 新建一个账户
         * 发送 { "username": "James", "password": "abcd" }
         * 成功返回 { "info": { "username": "James","id": 123, "rolename": "default" }, "isSuccess": { "status": 200, "detail": "done" } }
         * 失败返回 { "isSuccess": { "status": 400, "detail": "username is used." } }
-* /Accounts/{id}
+* /Accounts/Customer/{id}
     * GET 获取某个账户信息
         * 发送 { "user_id": 123 }
         * 成功返回 { "info": { "id": 123, "username":"James", "rolename": "default" }, "isSuccess": { "status": 200, "detail": "done" } }
@@ -12,8 +12,7 @@
         * 发送 { "user_id": 123 }
         * 成功返回 { "isSuccess": { "status": 200, "detail": "done" } }
         * 失败返回 { "isSuccess": { "status": 400, "detail": "failed" } }
-    * PUT 修改一个账户的信息
-* /Accounts/{id}/Permission
+* /Accounts/Permission/{id}
     * GET 获取某个账户权限
         * 发送 { "user_id":123 }
         * 成功返回 { "info": { "role_ids":[1,2] ,"rolenames": [ "default", "admin" ] }, "isSuccess": { "status": 200, "detail": "done" } }
@@ -27,7 +26,7 @@
         * 成功返回 { "isSuccess": { "status": 200, "detail": "deleted" } }
         * 失败返回 { "isSuccess": { "status": 400, "detail": "failed" } }
     * PUT 修改一个账户的权限
-* /stores
+* /Accounts/Stores
     * GET 所有商家
         * 发送 { "type": [ "Chinese", "snack" ],"sum":5 }
         * 返回 { "num_found":5, "store_id": [ 1, 2, 3, 4, 5 ], "isSuccess": { "status": 200, "detail": "done" } }
@@ -36,7 +35,7 @@
         * 发送 { "name": "KFC", "phone": "123456789", "type": "Chinese food", "user\_id": 123, "address": "Wall Street", "longitude": 123.123, "latitude": 231.231, "cover": "" }
         * 成功返回 { "isSuccess": { "status": 200, "detail": "done" } }
         * 失败返回 { "isSuccess": { "status": 400, "detail": "failed" } }
-* /comments/store/{store_id}
+* /Comments/store/{store_id}
     * GET 获取某个商家所有评论
         * 发送 { "store_id": 123 }
         * 成功返回 { "info": { "number": 3, "comment": [ "abcd", "efgh", "ijk" ] }, "isSuccess": { "status": 200, "detail": "done" } }
@@ -45,7 +44,7 @@
         * 发送 { "store_id": 123, "comment": "fucking delicious" }
         * 成功返回 { "isSuccess": { "status": 200, "detail": "done" } }
         * 失败返回 { "isSuccess": { "status": 400, "detail": "failed" } }
-* /comments/store/{store_id}/{comment_id}
+* /Comments/store/{store_id}/{comment_id}
     * GET 获取某个商家的某个评论
         * 发送 { "store_id": 123, "comment_id": 123 }
         * 成功返回 { "comment": "qnmb", "isSuccess": { "status": 200, "detail": "done" } }
@@ -58,7 +57,7 @@
         * 发送 { "store_id": 123, "comment_id": 123, "content":"new comment" }
         * 失败返回 { "isSuccess": { "status": 400, "detail": "failed" } }
         * 成功返回 { "isSuccess": { "status": 200, "detail": "updated" } }
-* /comments/dish/{store_id}/{dish_id}
+* /Comments/dish/{store_id}/{dish_id}
     * GET 获取某个商家的某个菜式的评论
         * 请求 { "store_id": 123, "good_id": 123 } 
         * 成功返回 { "isSuccess": { "status": 200, "detail": "updated" }, "num": 3, "comment": [ "abc", "def", "abcd" ] }
