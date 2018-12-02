@@ -17,16 +17,3 @@ CREATE TABLE IF NOT EXISTS order_goods (
   unit_price FLOAT NOT NULL
 ) ENGINE=InnoDB;
 
-CREATE TABLE IF NOT EXISTS address (
-  id INT UNSIGNED NOT NULL AUTO_INCREMENT,
-  user_id INT UNSIGNED NOT NULL,
-  `name` CHAR(32) CHARACTER SET utf8 NOT NULL,
-  gender ENUM('male', 'female') NOT NULL,
-  phone CHAR(32) NOT NULL,
-  shipping_address VARCHAR(255) CHARACTER SET utf8 DEFAULT '', -- 收货地址(思考是否需要加上坐标)
-  longitude FLOAT NOT NULL, -- 经度
-  latitude FLOAT NOT NULL, -- 纬度
-  house_number VARCHAR(255) CHARACTER SET utf8 DEFAULT '',
-  tag ENUM('family', 'company', 'school'),
-  PRIMARY KEY (id)
-) ENGINE=InnoDB;
