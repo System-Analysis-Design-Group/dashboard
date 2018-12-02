@@ -1,0 +1,11 @@
+server:
+  port: 8083
+  servlet:
+    context-path: /joyou
+    
+company: joyou
+employee: 二十岁以后
+
+spring:
+  profiles:
+    active: prod
