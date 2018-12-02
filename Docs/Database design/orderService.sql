@@ -27,5 +27,6 @@ CREATE TABLE IF NOT EXISTS address (
   longitude FLOAT NOT NULL, -- 经度
   latitude FLOAT NOT NULL, -- 纬度
   house_number VARCHAR(255) CHARACTER SET utf8 DEFAULT '',
-  tag ENUM('family', 'company', 'school')
+  tag ENUM('family', 'company', 'school'),
+  PRIMARY KEY (id)
 ) ENGINE=InnoDB;
