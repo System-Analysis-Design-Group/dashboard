@@ -1,4 +1,9 @@
-* /Accounts/Customer
+* /Accounts/Signin
+    * POST 登录
+        * 发送 { "username": "James", "password": "abcd" }
+        * 成功返回 { "info": { "username": "James","id": 123, "rolename": "default" }, "isSuccess": { "status": 200, "detail": "done" } }
+        * 失败返回 { "isSuccess": { "status": 500, "detail": "username or password is wrong." } }
+* /Accounts/Signup
     * POST 新建一个账户
         * 发送 { "username": "James", "password": "abcd" }
         * 成功返回 { "info": { "username": "James","id": 123, "rolename": "default" }, "isSuccess": { "status": 200, "detail": "done" } }
