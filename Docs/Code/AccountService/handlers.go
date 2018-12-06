@@ -11,11 +11,13 @@ import (
 	"github.com/gorilla/mux"
 )
 
+// Index 账号服务的欢迎界面
 // Index 绑定'/'
 func Index(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintln(w, "Welcome!")
 }
 
+// Alluser 查看所有用户信息
 // Alluser 查看所有用户信息 绑定'/Accounts'  method=GET
 func Alluser(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
@@ -26,6 +28,7 @@ func Alluser(w http.ResponseWriter, r *http.Request) {
 	// TODO
 }
 
+// UserGet 查看某个用户信息
 // UserGet 绑定 '/Accounts/Customer/{user_id}'  method= GET
 func UserGet(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
@@ -51,6 +54,7 @@ func UserGet(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+// UserDelete 删除某个用户信息
 // UserDelete 绑定'/Accounts/Customer/{user_id}'   method= DELETE
 func UserDelete(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
@@ -65,7 +69,8 @@ func UserDelete(w http.ResponseWriter, r *http.Request) {
 
 }
 
-// UserCreate 绑定'/Accounts/Customer'    method=POST
+// UserCreate 注册
+// UserCreate 绑定'/Accounts/Signup'    method=POST
 func UserCreate(w http.ResponseWriter, r *http.Request) {
 	var user User
 	body, err := ioutil.ReadAll(io.LimitReader(r.Body, 1048576))
@@ -89,6 +94,11 @@ func UserCreate(w http.ResponseWriter, r *http.Request) {
 	if err := json.NewEncoder(w).Encode(t); err != nil {
 		panic(err)
 	}
+	//todo
+}
+
+// Signin 绑定'/Accounts/Permission/{user_id}'   method=GET
+func Signin(w http.ResponseWriter, r *http.Request) {
 	//todo
 }
 

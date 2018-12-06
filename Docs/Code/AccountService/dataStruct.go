@@ -1,12 +1,11 @@
 package main
 
 type User struct {
-	Id       int    `json:"id"`
-	Username string `json:"username"`
-	Password string `json:"password"`
+	Id         int    `json:"id"`
+	Username   string `json:"username"`
+	Password   string `json:"password"`
+	Permission int    `json:"permission"`
 }
-
-type Users []User
 
 type Store struct {
 	Id        int     `json:"id"`
@@ -19,3 +18,4 @@ type Store struct {
 }
 
 type Stores []Store
+type Users []User

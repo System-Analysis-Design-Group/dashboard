@@ -26,11 +26,17 @@ var routes = Routes{
 		"/Accounts",
 		Alluser,
 	},
-	Route{ //新增用户
+	Route{ //注册
 		"userCreat",
 		"POST",
-		"/Accounts/Customer",
+		"/Accounts/Signup",
 		UserCreate,
+	},
+	Route{ //登录
+		"Signin",
+		"POST",
+		"/Accounts/Signin",
+		Signin,
 	},
 	Route{ //获取某用户账号信息
 		"UserGet",
