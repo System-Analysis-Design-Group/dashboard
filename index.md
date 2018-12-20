@@ -7,6 +7,7 @@ https://developer.android.com/studio/intro/
 
 # [](#TOC)目录
 
+* 0、[README 文档修订记录](README)
 * 1、[About 项目规划](01-about)
 * 2、[Team profile 团队组建](02-team-profile)
 * 3、[Investigation 项目前期调研](03-investigation)
