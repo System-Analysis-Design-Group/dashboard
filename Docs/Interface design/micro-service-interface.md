@@ -15,7 +15,7 @@
     * DELETE 删除一个账户
         * 成功返回 { "isSuccess": { "status": 200, "detail": "done" } }
         * 失败返回 { "isSuccess": { "status": 500, "detail": "failed" } }
-* /Accounts/Permission/{user_id}
+* /Accounts/Permission
     * GET 获取某个账户权限
         * 发送 { "user_id":123 }
         * 成功返回 { "info": { "role_ids":[1,2] ,"rolenames": [ "default", "admin" ] }, "isSuccess": { "status": 200, "detail": "done" } }
