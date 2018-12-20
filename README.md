@@ -18,8 +18,10 @@
 | 20181101 | 接口文档 | micro-service-interface.md | 家伟 | 增加JSON数据格式 |
 | 20181030 | UML图 | orderState.uxf | 黄潮立 | 添加订单状态分析 |
 | 20181030 | UML图 | sequence_diagram.uxf,class.uxf | 润浩 | 增加顺序图与类图 |
+| 20181030 | 接口文档 | micro-service-interface.md | 耀勇 | 设计 RestAPI URL Pattern |
 | 20181030 | readme | [readme.md][readme] | 耀勇 | 增加文档记录和文档修改记录 |
 | 20181029 | sql等 | Database design | 黄潮立 | 添加数据库相关设计 |
 | 20181023 | 系统用例图 | use\_case\_customer, use\_case\_shpowner | 润浩 | 去掉餐厅点餐需求 |
 | 20181022 | 系统用例图 | use\_case\_customer, use\_case\_shpowner | 耀勇 | 初步需求构想 |
+| 20180905 | logo | logo.png | 耀勇 | 项目 Logo设计 |
 
