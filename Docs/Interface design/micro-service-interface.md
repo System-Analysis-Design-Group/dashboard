@@ -142,6 +142,54 @@
     
     
     * PUT 更新某个订单
+
+* /orders/store/{store_id}
+    * GET 获取某个商家的所有订单信息
+      - 请求
+      {
+      "store_id":123
+      }
+      - 成功返回
+```json
+[
+    {
+        "user_id": 123, 
+        "sotre_id": 123, 
+        "status": "paid", 
+        "num_good": 3, 
+        "address": 123, 
+        "goods_info": [
+            {
+                "good_id": 1, 
+                "num": 2, 
+                "unit_price": 10
+            }
+        ]
+    }, 
+    {
+        "user_id": 123, 
+        "sotre_id": 123, 
+        "status": "paid", 
+        "num_good": 3, 
+        "address": 123, 
+        "goods_info": [
+            {
+                "good_id": 1, 
+                "num": 2, 
+                "unit_price": 10
+            }
+        ]
+    }
+]
+
+```
+  - 失败返回
+```json
+
+     { "isSuccess": { "status": 500, "detail": "failed" } }
+```        
+
+
 * /dishes
     * POST 新建菜式
       - 请求
@@ -185,4 +233,8 @@
       * 失败返回 { "isSuccess": { "status": 500, "detail": "failed" } }     
     
     * PUT 更新某个菜式
-
+    
+* /dishes/store/{store_id}
+    * GET 获取某个商家的菜单的信息
+          - 成功返回 [{"name": "jj", "store_id": 123, "type_id": 123, "description": "good", "or_price": 22, "curr_price": 20, "image_path": "/images/xxx.jpg","isSuccess": { "status": 200, "detail": "created" } }, {"name": "jxj", "store_id": 1223, "type_id": 123, "description": "good", "or_price": 22, "curr_price": 20, "image_path": "/images/xxx.jpg","isSuccess": { "status": 200, "detail": "created" } }]
+          - 失败返回 { "isSuccess": { "status": 500, "detail": "failed" } }
