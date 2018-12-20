@@ -5,92 +5,43 @@ title: 吃点啥
 [Android_Developers]: 
 https://developer.android.com/studio/intro/
 
-# Dashboard
+# [](#TOC)目录
 
-Records of YummyOrder development progress.
+* 1、[About 项目规划](01-about)
+* 2、[Team profile 团队组建](02-team-profile)
+* 3、[Investigation 项目前期调研](03-investigation)
+* 4、[Vision 项目愿景](04-vision)
+* 5、[Product Backlog 产品特性](05-product-backlog)
+* 6、Requirement specification 需求规格说明
+    - 6.1 [Usecase Diagram](06-01-usecase-diagram)
+    - 6.2 [Use Cases 用例+活动图](06-02-use-cases)
+    - 6.3 [Domian Model 领域模型](06-03-domain-model)
+    - 6.4 [State Model 状态模型](06-04-state-model)
+    - 6.5 [System Sequence Diagram 功能模型](06-05-system-sequence-diagram)
+    - 6.6 [Supplementary Requirements 补充性说明](06-06-supplementary-requirements)
+* 7、Design 设计
+    - 7.1 UI design UI 设计
+        - [XX 用例 UI 设计](07-01-01-XX-ui-design)
+    - 7.2 Database design 数据库设计
+        - 7.2.1 [用户及权限系统数据库设计](07-02-01-database-design)
+        - 7.2.2 [数据库ER模型图](07-02-02-database-er-model)
+        - 7.2.3 XX子系统数据课设计
+        - 7.2.x [第三方数据评审结果](07-02-03-第三方数据评审结果)
+    - 7.3 [API 设计](07-03-API)
+    - 7.4 [软件架构文档](07-04-software-architecture-document)
+    - 7.5 [用例设计](07-05-usecase-design)
+* 8、生产规范与指南
+    - 8.1 [代码规范](08-01-coding-standard)
+    - 8.2 [REST API设计规范](08-02-RESTful-api-design-standard)
+    - 8.3 [框架目录设计与逻辑架构与 ECB 的关系](08-03-relationship-between-ECB-framework-directory-design-logic-archit)
+    - 8.4 [部署文档](08-04-deployment-doc)
 
-## About Project
+* X1 meet_recording
+    - [Inception meeting (2018/03/23)](X1-inception-meeting)
+    - [Iteration 1 meeting (2018/04/09)](X1-iteration1-meeting)
+    - [Iteration 2 meeting (2018/05/09)](X1-iteration2-meeting)
+    - [Iteration 3 meeting (2018/06/30)](X1-iteration3-meeting)
+* [X2 Tech/Work Report](X2-techwork-report)
+* [X3 Final Report](X3-final-report)
 
-该项目的主题是“外卖点餐”,即设计一个云+端移动应用框架，来实现客户端点餐与web端商家交互的功能。同时，在实现外卖点餐的基本功能基础上，进行创新性的拓展，使产品更具吸引力，竞争性。
-
-## Core Artifcacts
-- 团队名称：YummyOrder
-- 团队目标：为每个用户提供便捷优质的外卖点餐服务
-- 团队成员清单：
-
-| 学号 | 姓名 | 英文名 | 专业方向 | 职务 |
-| :--: | :--: | :--: | :--: | :-----------: |
-| 18214695 | 窦耀勇 | Young Dou | 技术，产品 | 项目经理、系统架构设计、SRE工程师 | 
-| 18214759 | 李阳辉 | Eric Li | 技术 | 项目经理、Android工程师 | 
-| 18214787 | 陆润浩 | Bob Lu | 技术 | 产品经理、后端工程师 | 
-| 18214632 | 黄潮立 |  | 技术 | 系统架构设计、前端开发工程师 | 
-| 18214815 | 唐家伟 |  | 技术 | web后端工程师 | 
-| 18214629 | 胡弘康 |  | 技术 | 前端工程师 |
-
-- 具体分工和个人宣言
-
-| 姓名 | 分工内容 | 个人宣言 |
-| :--: | :--: | :--: |
-| 窦耀勇 | 负责项目系统架构设计，后端系统开发，系统可靠性运维 | stay hungry stay foolish. |
-| 李阳辉 | 负责项目的前端需求分析以及技术开发维护，相关智能算法的设计；组织编写项目文档，协同管理项目进展； | 让产品eyecatching和reliable是我的追求！ |
-| 陆润浩 | 负责项目的面向对象需求分析、设计与后台开发工作；协调前后端工作，组织编写项目文档； | 不断前进！ |
-| 黄潮立 | 负责项目系统架构设计，前端开发 | 让世界变得更美好 |
-| 唐家伟 | 负责项目的面向对象需求分析，以及项目后台的开发工作 | take it easy |
-| 胡弘康 | 负责项目的小程序端的开发和维护 | 实事求是 |
-
-## Demand Analysis
-
-| ID | Name | Imp | Est (week) | How to demo | Notes |
-|------|------|:---:|:----------:|----------------|------|
-|1|用户点餐，商家备餐|50|4|用户选择目标商家，查看菜单，提交订单，商家收到订单，用户在客户端看到接单响应|第一轮迭代|
-|2|显示用户附近商家|50|3|用户打开客户端，能正确显示用户的大致位置，同时用户可自行选择目标位置，以此来显示附近商家|第二轮迭代|
-|3|商家送达，用户评价|30|3|用户收到外卖，客户端显示已送达，并进行相应评价。商家收到评价|第三轮迭代|
-|4|拓展功能|20|3||第四轮迭代|
-
-
-## Iterations
-
-### Iteration 1 盘古迭代
-
-(2018/10/22-2018/10/31)
-
-
-**系统分析与设计**
-- [ ] 【全员】技术选型
-- [ ] 【耀勇、潮立】服务分拆
-- [ ] 【耀勇、潮立】系统架构设计
-- [ ] 接口设计
-    - [ ] 【耀勇】内部微服务接口设计
-        - [ ] java 接口
-    - [ ] 【润浩、家伟】外部API接口设计
-        - [ ] restful 接口格式
-        - [ ] json 数据格式
-- [ ] 【潮立】数据库设计
-- [ ] 原型设计故事板技术
-    - [ ] 【弘康】小程序原型设计
-    - [ ] 【阳辉】安卓原型设计
-    - [ ] 【潮立】web原型设计
-    - [ ] 【全员】下次会议讨论确定
-
-- 技术准备
-- [ ] 【弘康】小程序项目技术
-- [ ] 【阳辉】安卓技术
-- [ ] 【潮立】web技术
-- [ ] 【耀勇、家伟、润浩】后端技术
-    - [ ] java
-    - [ ] spring
-    - [ ] dubbo
-    - [ ] mybatis
-    
-### Iteration 2 伏羲迭代
-
-### Iteration 3 蚩尤迭代
-
-### Iteration 4 轩辕迭代
-
-
-
-***
-
-### Final
 
