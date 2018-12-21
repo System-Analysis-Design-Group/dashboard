@@ -1,0 +1,340 @@
+<LMModel Align="68" DisplayFlags="0" LineColor="#000000" FillStyle="none" LineWidth="1" FontUnderline="0" FillColor="#ffffff" LineStyle="Solid" FontColor="#000000" FontPointSize="9" BackgroundColor="#ffffff" FontBold="0" BackgroundImagePlacement="0" FontItalic="0" ModificationDate="2018-12-21T13:30:52" TextFlag="2048" CreationDate="2018-12-21T12:47:25" BackgroundType="0" FontStrikeOut="0" Name="????" BackgroundStyle="none" Version="2.2" NextOID="60" FontFamily="ADMUI3Lg" >
+ <LMEntityNormal width="125" x="38" TextField="2" Align="68" y="118" LineColor="#000000" FillStyle="Solid" LineWidth="1" Generate="1" FontUnderline="0" FillColor="#ffffff" LineStyle="Solid" FontColor="#000000" FontPointSize="9" OID="6" height="136" DefaultsLoaded="1" FontBold="0" FontItalic="0" TextFlag="2048" FontStrikeOut="0" Name="User" NextOID="9" FontFamily="ADMUI3Lg" >
+  <sink x="0.72" y="0.683824" OID="6" />
+  <sink x="0.96" y="0.448529" OID="7" />
+  <LMAttribute OID="1" Identifier="1" >
+   <Uses Class="LMDataItem" Path="2" Name="userId" />
+  </LMAttribute>
+  <LMAttribute OID="2" >
+   <Uses Class="LMDataItem" Path="3" Name="username" />
+  </LMAttribute>
+  <LMAttribute OID="3" >
+   <Uses Class="LMDataItem" Path="4" Name="password" />
+  </LMAttribute>
+  <LMAttribute OID="5" >
+   <Uses Class="LMDataItem" Path="5" Name="avatar" />
+  </LMAttribute>
+  <LMIdentifier Primary="1" OID="8" Name="userId" >
+   <Uses Class="LMAttribute" Path="6,1" Name="userId" />
+  </LMIdentifier>
+ </LMEntityNormal>
+ <LMEntityNormal width="142" x="305" TextField="2" Align="68" y="122" LineColor="#000000" FillStyle="Solid" LineWidth="1" Generate="1" FontUnderline="0" FillColor="#ffffff" LineStyle="Solid" FontColor="#000000" FontPointSize="9" OID="7" height="97" DefaultsLoaded="1" FontBold="0" FontItalic="0" TextFlag="2048" FontStrikeOut="0" Name="Role" NextOID="9" FontFamily="ADMUI3Lg" >
+  <sink x="0.788732" y="0.57732" OID="5" />
+  <sink x="0.0352113" y="0.597938" OID="6" />
+  <LMAttribute OID="3" >
+   <Uses Class="LMDataItem" Path="9" Name="rolename" />
+  </LMAttribute>
+  <LMAttribute OID="8" >
+   <Uses Class="LMDataItem" Path="54" Name="roleId" />
+  </LMAttribute>
+  <LMIdentifier Primary="1" OID="7" Name="roleId" >
+   <Uses Class="LMAttribute" Path="7,8" Name="roleId" />
+  </LMIdentifier>
+ </LMEntityNormal>
+ <LMEntityNormal width="120" x="611" TextField="2" Align="68" y="103" LineColor="#000000" FillStyle="Solid" LineWidth="1" Generate="1" FontUnderline="0" FillColor="#ffffff" LineStyle="Solid" FontColor="#000000" FontPointSize="9" OID="11" height="130" DefaultsLoaded="1" FontBold="0" FontItalic="0" TextFlag="2048" FontStrikeOut="0" Name="Permission" NextOID="6" FontFamily="ADMUI3Lg" >
+  <sink x="0.541667" y="0.661538" OID="3" />
+  <LMAttribute OID="2" >
+   <Uses Class="LMDataItem" Path="13" Name="name" />
+  </LMAttribute>
+  <LMAttribute OID="5" >
+   <Uses Class="LMDataItem" Path="55" Name="perId" />
+  </LMAttribute>
+  <LMIdentifier Primary="1" OID="4" Name="perId" >
+   <Uses Class="LMAttribute" Path="11,5" Name="perId" />
+  </LMIdentifier>
+ </LMEntityNormal>
+ <LMEntityNormal width="133" x="304" TextField="2" Align="68" y="332" LineColor="#000000" FillStyle="Solid" LineWidth="1" Generate="1" FontUnderline="0" FillColor="#ffffff" LineStyle="Solid" FontColor="#000000" FontPointSize="9" OID="14" height="118" DefaultsLoaded="1" FontBold="0" FontItalic="0" TextFlag="2048" FontStrikeOut="0" Name="Order" NextOID="10" FontFamily="ADMUI3Lg" >
+  <sink x="0.363636" y="0.70297" OID="5" />
+  <sink x="0.901515" y="0.465347" OID="6" />
+  <sink x="0.234848" y="0.39604" OID="7" />
+  <sink x="0.613636" y="0.207921" OID="8" />
+  <LMAttribute OID="1" >
+   <Uses Class="LMDataItem" Path="15" Name="orderId" />
+  </LMAttribute>
+  <LMAttribute OID="2" >
+   <Uses Class="LMDataItem" Path="16" Name="charge" />
+  </LMAttribute>
+  <LMAttribute OID="3" >
+   <Uses Class="LMDataItem" Path="17" Name="state" />
+  </LMAttribute>
+  <LMAttribute OID="4" >
+   <Uses Class="LMDataItem" Path="18" Name="created_at" />
+  </LMAttribute>
+  <LMIdentifier Primary="1" OID="9" Name="orederId" >
+   <Uses Class="LMAttribute" Path="14,1" Name="orderId" />
+  </LMIdentifier>
+ </LMEntityNormal>
+ <LMEntityNormal width="141" x="26" TextField="2" Align="68" y="329" LineColor="#000000" FillStyle="Solid" LineWidth="1" Generate="1" FontUnderline="0" FillColor="#ffffff" LineStyle="Solid" FontColor="#000000" FontPointSize="9" OID="19" height="141" DefaultsLoaded="1" FontBold="0" FontItalic="0" TextFlag="2048" FontStrikeOut="0" Name="Address" NextOID="9" FontFamily="ADMUI3Lg" >
+  <sink x="0.828571" y="0.342105" OID="6" />
+  <LMAttribute OID="2" >
+   <Uses Class="LMDataItem" Path="21" Name="name" />
+  </LMAttribute>
+  <LMAttribute OID="3" >
+   <Uses Class="LMDataItem" Path="22" Name="phone" />
+  </LMAttribute>
+  <LMAttribute OID="4" >
+   <Uses Class="LMDataItem" Path="23" Name="longitude" />
+  </LMAttribute>
+  <LMAttribute OID="5" >
+   <Uses Class="LMDataItem" Path="24" Name="latitude" />
+  </LMAttribute>
+  <LMAttribute OID="8" >
+   <Uses Class="LMDataItem" Path="56" Name="addId" />
+  </LMAttribute>
+  <LMIdentifier Primary="1" OID="7" Name="addId" />
+ </LMEntityNormal>
+ <LMEntityNormal width="137" x="593" TextField="2" Align="68" y="326" LineColor="#000000" FillStyle="Solid" LineWidth="1" Generate="1" FontUnderline="0" FillColor="#ffffff" LineStyle="Solid" FontColor="#000000" FontPointSize="9" OID="25" height="130" DefaultsLoaded="1" FontBold="0" FontItalic="0" TextFlag="2048" FontStrikeOut="0" Name="Dish" NextOID="11" FontFamily="ADMUI3Lg" >
+  <sink x="0.466667" y="0.982759" OID="8" />
+  <sink x="0.474074" y="0.448276" OID="7" />
+  <LMAttribute OID="2" >
+   <Uses Class="LMDataItem" Path="27" Name="name" />
+  </LMAttribute>
+  <LMAttribute OID="3" >
+   <Uses Class="LMDataItem" Path="28" Name="original_price" />
+  </LMAttribute>
+  <LMAttribute OID="4" >
+   <Uses Class="LMDataItem" Path="29" Name="current_price" />
+  </LMAttribute>
+  <LMAttribute OID="5" >
+   <Uses Class="LMDataItem" Path="30" Name="description" />
+  </LMAttribute>
+  <LMAttribute OID="10" >
+   <Uses Class="LMDataItem" Path="57" Name="dishId" />
+  </LMAttribute>
+  <LMIdentifier Primary="1" OID="9" Name="dishId" />
+ </LMEntityNormal>
+ <LMEntityNormal width="153" x="575" TextField="2" Align="68" y="521" LineColor="#000000" FillStyle="Solid" LineWidth="1" Generate="1" FontUnderline="0" FillColor="#ffffff" LineStyle="Solid" FontColor="#000000" FontPointSize="9" OID="31" height="141" DefaultsLoaded="1" FontBold="0" FontItalic="0" TextFlag="2048" FontStrikeOut="0" Name="Comment" NextOID="10" FontFamily="ADMUI3Lg" >
+  <sink x="0.54902" y="0.0921986" OID="7" />
+  <sink x="0.560345" y="0.537037" OID="6" />
+  <LMAttribute OID="2" >
+   <Uses Class="LMDataItem" Path="33" Name="parent_Id" />
+  </LMAttribute>
+  <LMAttribute OID="3" >
+   <Uses Class="LMDataItem" Path="34" Name="content" />
+  </LMAttribute>
+  <LMAttribute OID="4" >
+   <Uses Class="LMDataItem" Path="35" Name="type" />
+  </LMAttribute>
+  <LMAttribute OID="9" >
+   <Uses Class="LMDataItem" Path="59" Name="comId" />
+  </LMAttribute>
+  <LMIdentifier Primary="1" OID="8" Name="comId" >
+   <Uses Class="LMAttribute" Path="31,9" Name="comId" />
+  </LMIdentifier>
+ </LMEntityNormal>
+ <LMEntityNormal width="154" x="36" TextField="2" Align="68" y="515" LineColor="#000000" FillStyle="Solid" LineWidth="1" Generate="1" FontUnderline="0" FillColor="#ffffff" LineStyle="Solid" FontColor="#000000" FontPointSize="9" OID="36" height="148" DefaultsLoaded="1" FontBold="0" FontItalic="0" TextFlag="2048" FontStrikeOut="0" Name="Store" NextOID="12" FontFamily="ADMUI3Lg" >
+  <sink x="0.681818" y="0.513514" OID="8" />
+  <sink x="0.512987" y="0.175676" OID="9" />
+  <LMAttribute OID="2" >
+   <Uses Class="LMDataItem" Path="38" Name="name" />
+  </LMAttribute>
+  <LMAttribute OID="3" >
+   <Uses Class="LMDataItem" Path="39" Name="phone" />
+  </LMAttribute>
+  <LMAttribute OID="4" >
+   <Uses Class="LMDataItem" Path="40" Name="address" />
+  </LMAttribute>
+  <LMAttribute OID="5" >
+   <Uses Class="LMDataItem" Path="41" Name="longitude" />
+  </LMAttribute>
+  <LMAttribute OID="6" >
+   <Uses Class="LMDataItem" Path="42" Name="latitude" />
+  </LMAttribute>
+  <LMAttribute OID="7" >
+   <Uses Class="LMDataItem" Path="43" Name="type" />
+  </LMAttribute>
+  <LMAttribute OID="11" >
+   <Uses Class="LMDataItem" Path="58" Name="storeId" />
+  </LMAttribute>
+  <LMIdentifier Primary="1" OID="10" Name="storeId" >
+   <Uses Class="LMAttribute" Path="36,11" Name="storeId" />
+  </LMIdentifier>
+ </LMEntityNormal>
+ <LMRelationship BeginCardinality="1,n" TextField="2" Align="68" LineColor="#000000" FillStyle="Solid" LineWidth="1" EndArrowDirection="1072693248" EndArrowFlags="5" Generate="1" EndArrowType="3" FontUnderline="0" FillColor="#ffffff" LineStyle="Solid" FontColor="#000000" FontPointSize="9" OID="45" BeginArrowDirection="0" DefaultsLoaded="1" BeginArrowType="3" FontBold="0" FontItalic="0" EndTruncate="1" TextFlag="2048" FontStrikeOut="0" EndCardinality="1,n" BeginTruncate="1" BeginArrowFlags="5" NextOID="6" FontFamily="ADMUI3Lg" >
+  <point x="158" y="179" OID="1" SinkObjectOID="6" SinkOID="7" />
+  <point x="310" y="180" OID="2" SinkObjectOID="7" SinkOID="6" />
+  <TextHandle x="0.45" y="0.5" OID="3" />
+  <BeginRoleHandle x="10" y="10" OID="4" />
+  <EndRoleHandle x="10" y="10" OID="5" />
+ </LMRelationship>
+ <LMRelationship BeginCardinality="1,n" TextField="2" Align="68" LineColor="#000000" FillStyle="Solid" LineWidth="1" EndArrowDirection="1072693248" EndArrowFlags="5" Generate="1" EndArrowType="3" FontUnderline="0" FillColor="#ffffff" LineStyle="Solid" FontColor="#000000" FontPointSize="9" OID="46" BeginArrowDirection="0" DefaultsLoaded="1" BeginArrowType="3" FontBold="0" FontItalic="0" EndTruncate="1" TextFlag="2048" FontStrikeOut="0" EndCardinality="1,n" BeginTruncate="1" BeginArrowFlags="5" NextOID="6" FontFamily="ADMUI3Lg" >
+  <point x="417" y="178" OID="1" SinkObjectOID="7" SinkOID="5" />
+  <point x="676" y="189" OID="2" SinkObjectOID="11" SinkOID="3" />
+  <TextHandle x="0.45" y="0.5" OID="3" />
+  <BeginRoleHandle x="10" y="10" OID="4" />
+  <EndRoleHandle x="10" y="10" OID="5" />
+ </LMRelationship>
+ <LMRelationship BeginCardinality="1,n" TextField="2" Align="68" LineColor="#000000" FillStyle="Solid" LineWidth="1" EndArrowDirection="1072693248" EndArrowFlags="5" Generate="1" EndArrowType="3" FontUnderline="0" FillColor="#ffffff" LineStyle="Solid" FontColor="#000000" FontPointSize="9" OID="47" BeginArrowDirection="0" DefaultsLoaded="1" BeginArrowType="3" FontBold="0" FontItalic="0" EndTruncate="1" TextFlag="2048" FontStrikeOut="0" EndCardinality="0,n" BeginTruncate="1" BeginArrowFlags="5" NextOID="6" FontFamily="ADMUI3Lg" >
+  <point x="128" y="211" OID="1" SinkObjectOID="6" SinkOID="6" />
+  <point x="385" y="357" OID="2" SinkObjectOID="14" SinkOID="8" />
+  <TextHandle x="0.45" y="0.5" OID="3" />
+  <BeginRoleHandle x="10" y="10" OID="4" />
+  <EndRoleHandle x="10" y="10" OID="5" />
+ </LMRelationship>
+ <LMRelationship BeginCardinality="1,1" TextField="2" Align="68" LineColor="#000000" FillStyle="Solid" LineWidth="1" EndArrowDirection="1072693248" EndArrowFlags="5" Generate="1" EndArrowType="3" FontUnderline="0" FillColor="#ffffff" LineStyle="Solid" FontColor="#000000" FontPointSize="9" OID="48" BeginArrowDirection="0" DefaultsLoaded="1" BeginArrowType="3" FontBold="0" FontItalic="0" EndTruncate="1" TextFlag="2048" FontStrikeOut="0" EndCardinality="1,n" BeginTruncate="1" BeginArrowFlags="4" NextOID="6" FontFamily="ADMUI3Lg" >
+  <point x="335" y="378" OID="1" SinkObjectOID="14" SinkOID="7" />
+  <point x="142" y="377" OID="2" SinkObjectOID="19" SinkOID="6" />
+  <TextHandle x="0.45" y="0.5" OID="3" />
+  <BeginRoleHandle x="10" y="10" OID="4" />
+  <EndRoleHandle x="10" y="10" OID="5" />
+ </LMRelationship>
+ <LMRelationship BeginCardinality="0,n" TextField="2" Align="68" LineColor="#000000" FillStyle="Solid" LineWidth="1" EndArrowDirection="1072693248" EndArrowFlags="5" Generate="1" EndArrowType="3" FontUnderline="0" FillColor="#ffffff" LineStyle="Solid" FontColor="#000000" FontPointSize="9" OID="49" BeginArrowDirection="0" DefaultsLoaded="1" BeginArrowType="3" FontBold="0" FontItalic="0" EndTruncate="1" TextFlag="2048" FontStrikeOut="0" EndCardinality="1,n" BeginTruncate="1" BeginArrowFlags="5" NextOID="6" FontFamily="ADMUI3Lg" >
+  <point x="423" y="386" OID="1" SinkObjectOID="14" SinkOID="6" />
+  <point x="657" y="384" OID="2" SinkObjectOID="25" SinkOID="7" />
+  <TextHandle x="0.45" y="0.5" OID="3" />
+  <BeginRoleHandle x="10" y="10" OID="4" />
+  <EndRoleHandle x="10" y="10" OID="5" />
+ </LMRelationship>
+ <LMRelationship BeginCardinality="0,n" TextField="2" Align="68" LineColor="#000000" FillStyle="Solid" LineWidth="1" EndArrowDirection="1072693248" EndArrowFlags="5" Generate="1" EndArrowType="3" FontUnderline="0" FillColor="#ffffff" LineStyle="Solid" FontColor="#000000" FontPointSize="9" OID="50" BeginArrowDirection="0" DefaultsLoaded="1" BeginArrowType="3" FontBold="0" FontItalic="0" EndTruncate="1" TextFlag="2048" FontStrikeOut="0" EndCardinality="1,n" BeginTruncate="1" BeginArrowFlags="5" NextOID="6" FontFamily="ADMUI3Lg" >
+  <point x="352" y="414" OID="1" SinkObjectOID="14" SinkOID="5" />
+  <point x="115" y="541" OID="2" SinkObjectOID="36" SinkOID="9" />
+  <TextHandle x="0.45" y="0.5" OID="3" />
+  <BeginRoleHandle x="10" y="10" OID="4" />
+  <EndRoleHandle x="10" y="10" OID="5" />
+ </LMRelationship>
+ <LMRelationship BeginCardinality="1,1" TextField="2" Align="68" LineColor="#000000" FillStyle="Solid" LineWidth="1" EndArrowDirection="1072693248" EndArrowFlags="5" Generate="1" EndArrowType="3" FontUnderline="0" FillColor="#ffffff" LineStyle="Solid" FontColor="#000000" FontPointSize="9" OID="51" BeginArrowDirection="0" DefaultsLoaded="1" BeginArrowType="3" FontBold="0" FontItalic="0" EndTruncate="1" TextFlag="2048" FontStrikeOut="0" EndCardinality="1,n" BeginTruncate="1" BeginArrowFlags="4" NextOID="6" FontFamily="ADMUI3Lg" >
+  <point x="141" y="591" OID="1" SinkObjectOID="36" SinkOID="8" />
+  <point x="660" y="597" OID="2" SinkObjectOID="31" SinkOID="6" />
+  <TextHandle x="0.45" y="0.5" OID="3" />
+  <BeginRoleHandle x="10" y="10" OID="4" />
+  <EndRoleHandle x="10" y="10" OID="5" />
+ </LMRelationship>
+ <LMRelationship BeginCardinality="1,1" TextField="2" Align="68" LineColor="#000000" FillStyle="Solid" LineWidth="1" EndArrowDirection="1072693248" EndArrowFlags="5" Generate="1" EndArrowType="3" FontUnderline="0" FillColor="#ffffff" LineStyle="Solid" FontColor="#000000" FontPointSize="9" OID="53" BeginArrowDirection="0" DefaultsLoaded="1" BeginArrowType="3" FontBold="0" FontItalic="0" EndTruncate="1" TextFlag="2048" FontStrikeOut="0" EndCardinality="1,n" BeginTruncate="1" BeginArrowFlags="4" NextOID="6" FontFamily="ADMUI3Lg" >
+  <point x="656" y="453" OID="1" SinkObjectOID="25" SinkOID="8" />
+  <point x="659" y="534" OID="2" SinkObjectOID="31" SinkOID="7" />
+  <TextHandle x="0.45" y="0.5" OID="3" />
+  <BeginRoleHandle x="10" y="10" OID="4" />
+  <EndRoleHandle x="10" y="10" OID="5" />
+ </LMRelationship>
+ <Validation>
+  <Rule Name="Model name missing" Value="Error" />
+  <Rule Name="Model comment missing" Value="Warning" />
+  <Rule Name="Model description missing" Value="Information" />
+  <Rule Name="Model author missing" Value="Warning" />
+  <Rule Name="Rule name missing" Value="Error" />
+  <Rule Name="Rule code missing" Value="Warning" />
+  <Rule Name="Rule comment missing" Value="Warning" />
+  <Rule Name="Rule description missing" Value="Information" />
+  <Rule Name="Rule name duplicate" Value="Error" />
+  <Rule Name="Rule code duplicate" Value="Error" />
+  <Rule Name="Rule not used" Value="Warning" />
+  <Rule Name="Domain name missing" Value="Error" />
+  <Rule Name="Domain code missing" Value="Warning" />
+  <Rule Name="Domain comment missing" Value="Warning" />
+  <Rule Name="Domain description missing" Value="Information" />
+  <Rule Name="Domain name duplicate" Value="Error" />
+  <Rule Name="Domain code duplicate" Value="Error" />
+  <Rule Name="Domain type missing" Value="Error" />
+  <Rule Name="Domain type unknown" Value="Error" />
+  <Rule Name="Domain not used" Value="Warning" />
+  <Rule Name="Data Item name missing" Value="Error" />
+  <Rule Name="Data Item code missing" Value="Warning" />
+  <Rule Name="Data Item comment missing" Value="Warning" />
+  <Rule Name="Data Item description missing" Value="Information" />
+  <Rule Name="Data Item name duplicate" Value="Error" />
+  <Rule Name="Data Item code duplicate" Value="Error" />
+  <Rule Name="Data Item type missing" Value="Error" />
+  <Rule Name="Data Item type unknown" Value="Error" />
+  <Rule Name="Data Item not used" Value="Warning" />
+  <Rule Name="Entity name missing" Value="Error" />
+  <Rule Name="Entity code missing" Value="Warning" />
+  <Rule Name="Entity comment missing" Value="Warning" />
+  <Rule Name="Entity description missing" Value="Information" />
+  <Rule Name="Entity name duplicate" Value="Error" />
+  <Rule Name="Entity code duplicate" Value="Error" />
+  <Rule Name="Entity attribute missing" Value="Error" />
+  <Rule Name="Entity primary identifier missing" Value="Warning" />
+  <Rule Name="Association name missing" Value="Error" />
+  <Rule Name="Association code missing" Value="Warning" />
+  <Rule Name="Association comment missing" Value="Warning" />
+  <Rule Name="Association description missing" Value="Information" />
+  <Rule Name="Association name duplicate" Value="Error" />
+  <Rule Name="Association code duplicate" Value="Error" />
+  <Rule Name="Association link missing" Value="Error" />
+  <Rule Name="Inheritance name missing" Value="Error" />
+  <Rule Name="Inheritance code missing" Value="Warning" />
+  <Rule Name="Inheritance comment missing" Value="Warning" />
+  <Rule Name="Inheritance description missing" Value="Information" />
+  <Rule Name="Inheritance name duplicate" Value="Warning" />
+  <Rule Name="Inheritance code duplicate" Value="Warning" />
+  <Rule Name="Inheritance link missing" Value="Error" />
+  <Rule Name="Relationship name missing" Value="Error" />
+  <Rule Name="Relationship code missing" Value="Warning" />
+  <Rule Name="Relationship comment missing" Value="Warning" />
+  <Rule Name="Relationship description missing" Value="Information" />
+  <Rule Name="Relationship name duplicate" Value="Warning" />
+  <Rule Name="Relationship code duplicate" Value="Warning" />
+  <Rule Name="Relationship child entity missing" Value="Error" />
+  <Rule Name="Relationship parent entity missing" Value="Error" />
+  <Rule Name="Association Link name missing" Value="Error" />
+  <Rule Name="Association Link code missing" Value="Warning" />
+  <Rule Name="Association Link comment missing" Value="Warning" />
+  <Rule Name="Association Link description missing" Value="Information" />
+  <Rule Name="Association Link name duplicate" Value="Warning" />
+  <Rule Name="Association Link code duplicate" Value="Warning" />
+  <Rule Name="Association Link entity missing" Value="Error" />
+  <Rule Name="Association Link association missing" Value="Error" />
+  <Rule Name="Inheritance Link name missing" Value="" />
+  <Rule Name="Inheritance Link code missing" Value="" />
+  <Rule Name="Inheritance Link comment missing" Value="" />
+  <Rule Name="Inheritance Link description missing" Value="" />
+  <Rule Name="Inheritance Link name duplicate" Value="" />
+  <Rule Name="Inheritance Link code duplicate" Value="" />
+  <Rule Name="Inheritance Link entity missing" Value="Error" />
+  <Rule Name="Inheritance Link inheritance missing" Value="Error" />
+  <Rule Name="Attribute name missing" Value="Error" />
+  <Rule Name="Attribute code missing" Value="Warning" />
+  <Rule Name="Attribute comment missing" Value="Warning" />
+  <Rule Name="Attribute description missing" Value="Information" />
+  <Rule Name="Attribute is indentifier but not mandatory" Value="Error" />
+  <Rule Name="Attribute name duplicate" Value="Error" />
+  <Rule Name="Attribute code duplicate" Value="Error" />
+  <Rule Name="Identifier name missing" Value="Error" />
+  <Rule Name="Identifier code missing" Value="Warning" />
+  <Rule Name="Identifier comment missing" Value="Warning" />
+  <Rule Name="Identifier description missing" Value="Information" />
+  <Rule Name="Identifier name duplicate" Value="Error" />
+  <Rule Name="Identifier code duplicate" Value="Error" />
+  <Rule Name="Identifier attribute missing" Value="Error" />
+ </Validation>
+ <LMDataItem DataType="INTEGER" OID="2" Name="userId" />
+ <LMDataItem Length="30" DataType="VARCHAR" OID="3" Name="username" />
+ <LMDataItem Length="128" DataType="VARCHAR" OID="4" Name="password" />
+ <LMDataItem Length="30" DataType="VARCHAR" OID="5" Name="avatar" />
+ <LMDataItem DataType="INTEGER" OID="8" Name="roleId" />
+ <LMDataItem DataType="VARCHAR" OID="9" Name="rolename" />
+ <LMDataItem OID="10" />
+ <LMDataItem DataType="INTEGER" OID="12" Name="id" />
+ <LMDataItem DataType="VARCHAR" OID="13" Name="name" />
+ <LMDataItem DataType="INTEGER" OID="15" Name="orderId" />
+ <LMDataItem DataType="FLOAT" OID="16" Name="charge" />
+ <LMDataItem DataType="VARCHAR" OID="17" Name="state" />
+ <LMDataItem DataType="TIME" OID="18" Name="created_at" />
+ <LMDataItem OID="20" Name="id" />
+ <LMDataItem DataType="VARCHAR" OID="21" Name="name" />
+ <LMDataItem DataType="VARCHAR" OID="22" Name="phone" />
+ <LMDataItem DataType="FLOAT" OID="23" Name="longitude" />
+ <LMDataItem DataType="FLOAT" OID="24" Name="latitude" />
+ <LMDataItem DataType="INTEGER" OID="26" Name="id" />
+ <LMDataItem DataType="VARCHAR" OID="27" Name="name" />
+ <LMDataItem DataType="FLOAT" OID="28" Name="original_price" />
+ <LMDataItem DataType="REAL" OID="29" Name="current_price" />
+ <LMDataItem Length="150" DataType="VARCHAR" OID="30" Name="description" />
+ <LMDataItem DataType="CHAR" OID="32" Name="id" />
+ <LMDataItem DataType="CHAR" OID="33" Name="parent_Id" />
+ <LMDataItem DataType="VARCHAR" OID="34" Name="content" />
+ <LMDataItem DataType="VARCHAR" OID="35" Name="type" />
+ <LMDataItem DataType="INTEGER" OID="37" Name="id" />
+ <LMDataItem DataType="VARCHAR" OID="38" Name="name" />
+ <LMDataItem DataType="VARCHAR" OID="39" Name="phone" />
+ <LMDataItem DataType="VARCHAR" OID="40" Name="address" />
+ <LMDataItem DataType="FLOAT" OID="41" Name="longitude" />
+ <LMDataItem DataType="FLOAT" OID="42" Name="latitude" />
+ <LMDataItem DataType="VARCHAR" OID="43" Name="type" />
+ <LMDataItem DataType="INTEGER" OID="54" Name="roleId" />
+ <LMDataItem DataType="INTEGER" OID="55" Name="perId" />
+ <LMDataItem DataType="INTEGER" OID="56" Name="addId" />
+ <LMDataItem DataType="INTEGER" OID="57" Name="dishId" />
+ <LMDataItem DataType="INTEGER" OID="58" Name="storeId" />
+ <LMDataItem DataType="CHAR" OID="59" Name="comId" />
+</LMModel>

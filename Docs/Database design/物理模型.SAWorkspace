@@ -1,0 +1,4 @@
+<SAWorkspace Name="" Version="2.2" >
+ <Child Class="LMModel" Location="???????.LMModel" />
+ <Child Class="MYModel" Location="????.MYModel" />
+</SAWorkspace>

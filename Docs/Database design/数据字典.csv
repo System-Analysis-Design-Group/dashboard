@@ -1,0 +1,11 @@
+User			
+字段	数据类型	健	备注
+userId	INTERGER	主键	
+username	VAR(30)		姓名
+password  	VAR(128)		
+avatar	VAR(120)		头像文件名
+			
+Role			
+字段	数据类型	健	备注
+roleId	INTERGER		
+rolename	VAR(30)		角色名称
