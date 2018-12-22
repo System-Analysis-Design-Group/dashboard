@@ -46,9 +46,7 @@ Order
 --
 -name
 -phone
--address
--longitude
--latitude
+-addressID
 -type
 </panel_attributes>
     <additional_attributes/>
