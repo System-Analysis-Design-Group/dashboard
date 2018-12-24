@@ -64,12 +64,13 @@
 ```
 - 失败返回 【略】
 
-# /Accounts/Permission
+# /Accounts/Permission/{uerId}
 ## GET 获取某个账户权限
 - 发送 { "userId":123 }
 - 成功返回 { "info": { "role_ids":[1,2] ,"rolenames": [ "default", "admin" ] }, "isSuccess": { "status": 200, "detail": "done" } }
 - 失败返回 【略】
 
+# /Accounts/Permission/
 ## POST 给某个用户新建权限
 - 发送 { "userId": 123, "role_id": 123 }
 - 失败返回 【略】
@@ -81,9 +82,8 @@
     "message": "ok"
 }
 ```
-
+# /Accounts/Permission/{uerId}/{role_id}
 ## DELETE 给某个用户删除权限
-- 发送 { "userId": 123, "role_id": 123 }
 - 成功返回 
 ```json
 {
