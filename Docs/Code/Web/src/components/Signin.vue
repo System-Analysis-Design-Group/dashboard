@@ -1,6 +1,7 @@
 <template>
+  <!-- TODO -->
   <div class="hello">
-    <el-button @click="test">默认按钮</el-button>
+    <el-button @click="test">TODO</el-button>
   </div>
 </template>
 
@@ -8,7 +9,7 @@
 import auth from '@/api/rest/auth.js'
 
 export default {
-  name: 'HelloWorld',
+  name: 'signin',
   data () {
     return {
     }
@@ -23,4 +24,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.hello {
+  margin-top: 100px;
+}
 </style>

@@ -5,7 +5,9 @@ Vue.use(VueRouter)
 
 import Cache from '@/utils/cache';
 
-import HelloWorld from '@/components/HelloWorld'
+import Home from '@/components/Home'
+import Signin from '@/components/Signin'
+import NormalNav from '@/components/navigation/normal'
 
 let router = new VueRouter({
   routes: [
@@ -13,7 +15,16 @@ let router = new VueRouter({
       path: '/',
       name: 'login',
       components: {
-        content: HelloWorld
+        navigation: NormalNav,
+        content: Home
+      }
+    },
+    {
+      path: '/signin',
+      name: 'signin',
+      components: {
+        navigation: NormalNav,
+        content: Signin
       }
     },
     // {
@@ -38,7 +49,7 @@ let router = new VueRouter({
 })
 
 router.beforeEach((to, from, next) => {
-  if (to.name !== 'login' && !Cache.getToken()) {
+  if (to.name !== 'signin' && to.name !== 'login' && !Cache.getToken()) {
     router.push({ name: 'login' })
   } else {
     next()
