@@ -17,6 +17,13 @@ type Detail struct {
 	Message string `json:"message"`
 }
 
+type Detail1 struct {
+	Obj     `json:"obj"`
+	Code    int    `json:"code"`
+	Message string `json:"message"`
+	Token   string `json:"token"`
+}
+
 type FoundStore struct {
 	NumFound int64   `json:"numfound"`
 	StoreId  []int64 `json:"storeId"`
@@ -38,4 +45,19 @@ type PermissionInside struct {
 	RoleID      int64    `json:"roleid"`
 	RoleName    string   `json:"rolename"`
 	Permissions []string `json:"permissions"`
+}
+
+type User struct {
+	Username string `json:"username"`
+	Password string `json:"password"`
+}
+
+type Store struct {
+	Name      string  `json:"name"`
+	Phone     string  `json:"phone"`
+	Type      string  `json:"type"`
+	User_id   int64   `json:"user_id"`
+	Address   string  `json:"address"`
+	Longitude float64 `json:"longitude"`
+	Latitude  float64 `json:"latitude"`
 }

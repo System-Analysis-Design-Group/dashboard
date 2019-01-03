@@ -2,6 +2,7 @@ package controllers
 
 import (
 	"Account/models"
+	"encoding/json"
 
 	"github.com/astaxie/beego"
 )
@@ -15,10 +16,11 @@ func (c *SignupController) Get() {
 }
 
 func (c *SignupController) Post() {
+	gotUser := User{}
+	json.Unmarshal(c.Ctx.Input.RequestBody, &gotUser)
 	newUser := models.User{}
-	newUser.Username = c.GetString("username")
-	newUser.Password = c.GetString("password")
-
+	newUser.Username = gotUser.Username
+	newUser.Password = gotUser.Password
 	userID, err := models.AddCustomer(&newUser)
 	if err != nil {
 		response := Simple{500, "failed"}
@@ -26,7 +28,7 @@ func (c *SignupController) Post() {
 	} else {
 		//要在UserRole表里加入一个记录
 		models.AddRole(userID, 0)
-		response := Detail{Obj{newUser.Username, userID, "default"}, 200, "ok"}
+		response := Detail{Obj{newUser.Username, userID, "customer"}, 200, "ok"}
 		c.Data["json"] = &response
 	}
 	c.ServeJSON()
