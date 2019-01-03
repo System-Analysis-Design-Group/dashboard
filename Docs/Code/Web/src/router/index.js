@@ -8,6 +8,9 @@ import Cache from '@/utils/cache';
 import Home from '@/components/Home'
 import Signin from '@/components/Signin'
 import NormalNav from '@/components/navigation/normal'
+import BussinessNav from '@/components/navigation/business'
+import BussinessDashboard from '@/components/business/dashboard'
+import BussinessDishesManagement from '@/components/business/DishesManagement'
 
 let router = new VueRouter({
   routes: [
@@ -26,6 +29,18 @@ let router = new VueRouter({
         navigation: NormalNav,
         content: Signin
       }
+    },
+    {
+      path: '/business',
+      name: 'business',
+      components: {
+        navigation: BussinessNav,
+        content: BussinessDashboard
+      },
+      children: [{
+        path: '',
+        component: BussinessDishesManagement
+      }]
     },
     // {
     //   path: '/dashboard',
@@ -48,12 +63,12 @@ let router = new VueRouter({
   ]
 })
 
-router.beforeEach((to, from, next) => {
-  if (to.name !== 'signin' && to.name !== 'login' && !Cache.getToken()) {
-    router.push({ name: 'login' })
-  } else {
-    next()
-  }
-})
+// router.beforeEach((to, from, next) => {
+//   if (to.name !== 'signin' && to.name !== 'login' && !Cache.getToken()) {
+//     router.push({ name: 'login' })
+//   } else {
+//     next()
+//   }
+// })
 
 export default router
