@@ -2,8 +2,8 @@ package controllers
 
 import (
 	"Account/models"
+	"encoding/json"
 	"log"
-	"strconv"
 
 	"github.com/astaxie/beego"
 )
@@ -26,6 +26,7 @@ func (c *StoreController) Get() {
 		response := Found{f, 200, "ok"}
 		c.Data["json"] = &response
 		c.ServeJSON()
+		//c.TplName = "postStore.html"
 		return
 	}
 	num, store := models.GetStores(ttype)
@@ -48,25 +49,33 @@ func (c *StoreController) Delete() {
 }
 
 func (c *StoreController) Post() {
+	gotStore := Store{}
+	json.Unmarshal(c.Ctx.Input.RequestBody, &gotStore)
 	store := models.Store{}
-	store.Name = c.GetString("name")
-	store.Phone = c.GetString("phone")
-	store.StoreType = c.GetString("type")
-	store.UserID, _ = strconv.ParseInt(c.GetString("user_id"), 10, 64)
-	store.Address = c.GetString("address")
-	store.Longitude, _ = strconv.ParseFloat(c.GetString("longitude"), 64)
-	store.Latitude, _ = strconv.ParseFloat(c.GetString("latitude"), 64)
-	_, err := models.AddStore(&store)
-	if err != nil {
-		response := Simple{500, "failed"}
+	store.Name = gotStore.Name
+	store.Phone = gotStore.Phone
+	store.StoreType = gotStore.Type
+	store.UserID = gotStore.User_id
+	store.Address = gotStore.Address
+	store.Longitude = gotStore.Longitude
+	store.Latitude = gotStore.Latitude
+	u := models.GetUserInfo(store.UserID)
+	if u == nil {
+		response := Simple{500, "没有此用户"}
 		c.Data["json"] = &response
 	} else {
-		response := Simple{200, "ok"}
-		c.Data["json"] = &response
-		ur := models.GetRole(store.UserID)
-		if ur.RoleID == 0 {
-			ur.RoleID = 1
-			models.UpdateRole(ur)
+		_, err := models.AddStore(&store)
+		if err != nil {
+			response := Simple{500, "failed"}
+			c.Data["json"] = &response
+		} else {
+			response := Simple{200, "ok"}
+			c.Data["json"] = &response
+			ur := models.GetRole(store.UserID)
+			if ur.RoleID == 0 {
+				ur.RoleID = 1
+				models.UpdateRole(ur)
+			}
 		}
 	}
 	c.ServeJSON()

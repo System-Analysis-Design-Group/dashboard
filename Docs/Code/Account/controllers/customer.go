@@ -22,7 +22,16 @@ func (c *CustomerController) Get() {
 		if user != nil {
 			//成功查询
 			log.Println(user)
-			response := Detail{Obj{user.Username, user.UserID, "default"}, 200, "ok"}
+			ur := models.GetRole(id)
+			var tmp string
+			if ur.RoleID == 0 {
+				tmp = "customer"
+			} else if ur.RoleID == 1 {
+				tmp = "owner"
+			} else {
+				tmp = "admin"
+			}
+			response := Detail{Obj{user.Username, user.UserID, tmp}, 200, "ok"}
 			c.Data["json"] = &response
 		} else {
 			response := Simple{500, "failed"}

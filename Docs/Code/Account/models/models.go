@@ -1,13 +1,14 @@
 package models
 
 import (
+	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/orm"
 	_ "github.com/go-sql-driver/mysql"
 )
 
 func init() {
 	orm.RegisterDriver("mysql", orm.DRMySQL)
-	orm.RegisterDataBase("default", "mysql", "root:flashwade321@tcp(127.0.0.1:3306)/account?charset=utf8", 30)
+	orm.RegisterDataBase("default", "mysql", beego.AppConfig.String("mysqluser")+":"+beego.AppConfig.String("mysqlpass")+"@tcp(127.0.0.1:3306)/account?charset=utf8", 30)
 	//orm.RegisterModel(new(User), new(Role), new(Permission), new(Address), new(RolePermission), new(Store), new(UserRole))
 	orm.RegisterModel(new(User), new(Store), new(Role), new(Permission), new(RolePermission), new(UserRole))
 	orm.RunSyncdb("default", false, true)
