@@ -9,7 +9,7 @@
         change-on-select,
         @change="searchDishes"
       )
-      el-button.edit-button(icon="el-icon-more-outline", circle, title="编辑分类", @click="editOptionVisible = true")
+      el-button.edit-button(icon="el-icon-more-outline", circle, title="编辑分类", @click="editOptionVisible = true", disabled)
     .content
       el-card.dishes-item(
         shadow="hover",
@@ -21,11 +21,12 @@
           .price
             span.cur-price ￥11
             span.old-price ￥15
-        .item-operation(title="更多操作", @click="editDialogVisible = true")
+        .item-operation(title="更多操作", @click="showEditFormDialog")
           .edit-button.el-icon-more-outline
       el-card.dishes-item.dishes-item--add(
         shadow="hover",
         :body-style="{ padding: '0px' }",
+        @click.native="showCreateFormDialog",
       )
         .el-icon-plus.add-button
     el-dialog.option-dialog(v-if="editOptionVisible", title="编辑餐品分类", :visible.sync="editOptionVisible")
@@ -45,38 +46,19 @@
         @blur="addOption"
       )
       el-button.new-option-button(v-else size="small" @click="showInput") + 新建分类
-        
-    el-dialog(v-if="editDialogVisible", title="编辑餐品", :visible.sync="editDialogVisible")
-      //- .info-container
-      //-   .info-item(
-      //-     v-for="item in editSpeciesInfo.metadataList"
-      //-   )
-      //-     img.img(:src="item.path ? '/api' + item.path.substring(1) : require('../assets/no_img.png')")
-      //-     .description {{item.description}}
-      //-     el-button.operation(type="danger", icon="el-icon-delete", @click="deleteMetadataById(item.id)" , circle)
-      //- .new-info
-      //-   el-input.description(
-      //-     type="textarea"
-      //-     :rows="3"
-      //-     placeholder="请输入图片描述"
-      //-     v-model="uploadData.description"
-      //-   )
-      //-   el-upload.uploader(
-      //-     ref="uploader",
-      //-     action="/api/category/metadata",
-      //-     :auto-upload="false",
-      //-     :headers="uploadHeader",
-      //-     :data="uploadData",
-      //-     :multiple="false",
-      //-     :on-success="handleUploadSuccess",
-      //-     :limit="1"
-      //-   )
-      //-     el-button(slot="trigger", size="small", type="primary") 选取图片
-      //-     el-button.button(type="success", size="small", @click="submitUpload") 添加新图片
+
+    dish-form-dialog(
+      :visible.sync="editDialogVisible",
+      :title="isEditForm ? '编辑餐品' : '新建餐品'",
+      :isEdit="isEditForm",
+      :editData="editData",
+      @has-update="loadData"
+    )
 </template>
 
 <script>
 import auth from '@/api/rest/auth.js'
+import DishFormDialog from './dialogs/DishFormDialog'
 
 export default {
   data () {
@@ -93,9 +75,29 @@ export default {
       editOptionVisible: false,
       optionInputVisible: false,
       optionInputValue: '',
+      isEditForm: false,
+      editData: {
+        id: 122,
+        name: 'hhhh',
+        typeName: 'sss',
+        orPrice: 0.01,
+        cuPrice: 0.98,
+        description: 'ssss',
+      }
     }
   },
   methods: {
+    loadData () {
+      console.log("test")
+    },
+    showCreateFormDialog () {
+      this.isEditForm = false
+      this.editDialogVisible = true
+    },
+    showEditFormDialog () {
+      this.isEditForm = true
+      this.editDialogVisible = true
+    },
     searchDishes () {
       // TODO: this.selectedOptions
     },
@@ -122,6 +124,9 @@ export default {
         this.$refs.saveOptionInput.$refs.input.focus()
       })
     }
+  },
+  components: {
+    'dish-form-dialog': DishFormDialog
   }
 }
 </script>
