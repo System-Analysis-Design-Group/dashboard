@@ -13,6 +13,30 @@ func AddStore(s *Store) (int64, error) {
 	return storeID, err
 }
 
+// CheckIfUserExist 查看是否存在该商店名
+func CheckIfStoreExist(storeName string) bool {
+	o := orm.NewOrm()
+	valiUser := Store{}
+	valiUser.Name = storeName
+	err := o.Read(&valiUser, "Name")
+	if err != nil {
+		return false
+	} else {
+		return true
+	}
+}
+
+func DeleteStore(id int64) bool {
+	o := orm.NewOrm()
+	if num, err := o.Delete(&Store{StoreID: id}); err == nil && num != 0 {
+		log.Println(num)
+		return true
+	} else {
+		log.Println(err)
+		return false
+	}
+}
+
 func GetStores(t string) (int64, []Store) {
 	o := orm.NewOrm()
 	var store []Store

@@ -3,7 +3,6 @@ package controllers
 import (
 	"Account/models"
 	"encoding/json"
-	"log"
 	"time"
 
 	"github.com/astaxie/beego"
@@ -15,15 +14,8 @@ type SigninController struct {
 }
 
 func (c *SigninController) Post() {
-	//c.Ctx.WriteString(fmt.Sprint(c.Input()))
-	// username := c.GetString("username")
-	// password := c.GetString("password")
-	gotUser := User{}
-	json.Unmarshal(c.Ctx.Input.RequestBody, &gotUser)
-	log.Println(gotUser)
 	var user models.User
-	user.Username = gotUser.Username
-	user.Password = gotUser.Password
+	json.Unmarshal(c.Ctx.Input.RequestBody, &user)
 	id, isOK := models.ValidateUser(user)
 	if isOK == true {
 		ur := models.GetRole(id)
@@ -36,7 +28,7 @@ func (c *SigninController) Post() {
 			tmp = "admin"
 		}
 		claims := make(jwt.MapClaims)
-		claims["username"] = gotUser.Username
+		claims["username"] = user.Username
 		if tmp == "admin" {
 			claims["admin"] = "true"
 		} else {
@@ -49,13 +41,13 @@ func (c *SigninController) Post() {
 		if err != nil {
 			beego.Error("jwt.SignedString:", err)
 		}
-		response := Detail1{Obj{gotUser.Username, id, tmp}, 200, "ok", tokenString}
+		response := Detail1{Obj{user.Username, id, tmp}, 200, "欢迎您" + user.Username, tokenString}
 		c.Data["json"] = &response
-		log.Println("登录成功")
+		//log.Println("登录成功")
 	} else {
-		response := Simple{500, "failed"}
+		response := Simple{500, "用户名或密码错误"}
 		c.Data["json"] = &response
-		log.Println("登录失败")
+		//log.Println("登录失败")
 	}
 
 	c.ServeJSON()

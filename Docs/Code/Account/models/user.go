@@ -28,6 +28,19 @@ func ValidateUser(u User) (int64, bool) {
 	}
 }
 
+// CheckIfUserExist 查看是否存在该用户名
+func CheckIfUserExist(username string) bool {
+	o := orm.NewOrm()
+	valiUser := User{}
+	valiUser.Username = username
+	err := o.Read(&valiUser, "Username")
+	if err != nil {
+		return false
+	} else {
+		return true
+	}
+}
+
 func GetUserInfo(id int64) *User {
 	o := orm.NewOrm()
 	u := User{UserID: id}

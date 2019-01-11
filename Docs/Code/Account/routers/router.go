@@ -13,4 +13,5 @@ func init() {
 	beego.Router("/Accounts/Stores/?:type", &controllers.StoreController{})
 	beego.Router("/Accounts/Permission/?:id", &controllers.PermissionController{})
 	beego.Router("Accounts/Avator/?:userid", &controllers.FileController{})
+	beego.Router("Accounts/logout", &controllers.LogoutController{})
 }

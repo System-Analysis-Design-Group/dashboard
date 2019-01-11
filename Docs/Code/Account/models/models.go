@@ -22,14 +22,14 @@ type User struct {
 }
 
 type Store struct {
-	StoreID   int64 `orm:"pk;auto"`
-	UserID    int64
-	Name      string
-	Phone     string
-	StoreType string
-	Address   string
-	Longitude float64
-	Latitude  float64
+	StoreID   int64   `orm:"pk;auto"`
+	UserID    int64   `json:"user_id"`
+	Name      string  `json:"name"`
+	Phone     string  `json:"phone"`
+	StoreType string  `json:"type"`
+	Address   string  `json:"address"`
+	Longitude float64 `json:"longitude"`
+	Latitude  float64 `json:"latitude"`
 }
 
 type Role struct {

@@ -4,6 +4,7 @@ import (
 	"Account/models"
 	"encoding/json"
 	"log"
+	"strconv"
 
 	"github.com/astaxie/beego"
 )
@@ -44,23 +45,33 @@ func (c *StoreController) Get() {
 }
 
 func (c *StoreController) Delete() {
-
-	c.TplName = "index.tpl"
+	StoreId := c.Ctx.Input.Param(":type")
+	id, err0 := strconv.ParseInt(StoreId, 10, 64)
+	if err0 != nil {
+		response := Simple{500, "输入不合法"}
+		c.Data["json"] = &response
+	} else {
+		isSuccess := models.DeleteStore(id)
+		if isSuccess == true {
+			response := Simple{200, "ok"}
+			c.Data["json"] = &response
+		} else {
+			response := Simple{500, "删除出错，可能商店ID不存在"}
+			c.Data["json"] = &response
+		}
+	}
+	c.ServeJSON()
 }
 
 func (c *StoreController) Post() {
-	gotStore := Store{}
-	json.Unmarshal(c.Ctx.Input.RequestBody, &gotStore)
 	store := models.Store{}
-	store.Name = gotStore.Name
-	store.Phone = gotStore.Phone
-	store.StoreType = gotStore.Type
-	store.UserID = gotStore.User_id
-	store.Address = gotStore.Address
-	store.Longitude = gotStore.Longitude
-	store.Latitude = gotStore.Latitude
+	json.Unmarshal(c.Ctx.Input.RequestBody, &store)
 	u := models.GetUserInfo(store.UserID)
-	if u == nil {
+	isExisted := models.CheckIfStoreExist(store.Name)
+	if isExisted == true {
+		response := Simple{500, "已经存在此店名"}
+		c.Data["json"] = &response
+	} else if u == nil {
 		response := Simple{500, "没有此用户"}
 		c.Data["json"] = &response
 	} else {

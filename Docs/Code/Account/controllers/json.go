@@ -47,11 +47,6 @@ type PermissionInside struct {
 	Permissions []string `json:"permissions"`
 }
 
-type User struct {
-	Username string `json:"username"`
-	Password string `json:"password"`
-}
-
 type Store struct {
 	Name      string  `json:"name"`
 	Phone     string  `json:"phone"`
