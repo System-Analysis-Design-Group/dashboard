@@ -1,25 +1,26 @@
 import fetch from '@/api/fetch.js'
+import FormUtil from '@/utils/form'
 
-function login({ username, password }) {
-  return fetch({
-    url: '/login',
-    method: 'post',
-    data: {
-      username,
-      password
-    }
-  })
-}
+const AuthServicePrefix = "/AccountService"
 
-function logout(token) {
-  let fetchData = {
-    url: '/token',
-    method: 'delete'
+class AuthService {
+  static login(formData) {
+    let uploadData = {}
+    FormUtil.assignTo(formData, uploadData, [
+      "username", "password",
+    ])
+    return fetch({
+      url: `${AuthServicePrefix}/Accounts/Signin`,
+      method: 'post',
+      data: uploadData,
+    })
   }
-  return fetch(fetchData)
+  static logout() {
+    return fetch({
+      url: `${AuthServicePrefix}/logout`,
+      method: 'post',
+    })
+  }
 }
 
-export default {
-  login,
-  logout
-}
+export default AuthService
