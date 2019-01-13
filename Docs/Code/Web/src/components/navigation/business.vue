@@ -13,16 +13,16 @@
       el-menu-item(index="1", route="/business")
         i.el-icon-goods
         span(slot="title") 商品管理
-      el-menu-item(index="2", route="/business/order")
+      el-menu-item(index="2", route="/business/orders")
         i.el-icon-tickets
         span(slot="title") 订单管理
-      el-menu-item(index="3", route="/business/comment")
+      el-menu-item(index="3", route="/business/comments")
         i.el-icon-edit
         span(slot="title") 评论管理
 </template>
 
 <script>
-const PATHS = ["/business", "/business/order", "/business/order"]
+const PATHS = ["/business", "/business/orders", "/business/orders"]
 export default {
   data () {
     return {

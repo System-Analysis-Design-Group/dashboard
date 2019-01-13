@@ -8,9 +8,11 @@ import Cache from '@/utils/cache';
 import Home from '@/components/Home'
 import Signin from '@/components/Signin'
 import NormalNav from '@/components/navigation/normal'
-import BussinessNav from '@/components/navigation/business'
-import BussinessDashboard from '@/components/business/dashboard'
-import BussinessDishesManagement from '@/components/business/DishesManagement'
+import BusinessNav from '@/components/navigation/business'
+import BusinessDashboard from '@/components/business/dashboard'
+import BusinessDishesManagement from '@/components/business/DishesManagement'
+import BusinessOrdersManagement from '@/components/business/OrdersManagement'
+import BusinessCommentsManagement from '@/components/business/CommentsManagement'
 
 let router = new VueRouter({
   routes: [
@@ -34,12 +36,18 @@ let router = new VueRouter({
       path: '/business',
       name: 'business',
       components: {
-        navigation: BussinessNav,
-        content: BussinessDashboard
+        navigation: BusinessNav,
+        content: BusinessDashboard
       },
       children: [{
         path: '',
-        component: BussinessDishesManagement
+        component: BusinessDishesManagement
+      }, {
+        path: 'orders',
+        component: BusinessOrdersManagement
+      }, {
+        path: 'comments',
+        component: BusinessCommentsManagement
       }]
     },
     // {

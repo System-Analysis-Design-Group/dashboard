@@ -4,12 +4,10 @@ import fetch from '@/api/fetch.js'
 const OrdersServicePrefix = '/OrdersService'
 
 class OrdersService {
-  static (
-    UnpaidStatus = 0,
-    PaidedStatus = 1,
-    AcceptedStatus = 2,
-    RejectedStatus = 3,
-  )
+  static UnpaidStatus = 0
+  static PaidedStatus = 1
+  static AcceptedStatus = 2
+  static RejectedStatus = 3
 
   static getAllOrderOfStore (storeId) {
     return fetch({
@@ -24,10 +22,10 @@ class OrdersService {
     })
   }
   static acceptOrder (orderId) {
-    return _updateOrderStatus(orderId, this.AcceptedStatus)
+    return this._updateOrderStatus(orderId, this.AcceptedStatus)
   }
   static rejectOrder (orderId) {
-    return _updateOrderStatus(orderId, this.RejectedStatus)
+    return this._updateOrderStatus(orderId, this.RejectedStatus)
   }
   static getOrderDetail (orderId) {
     return fetch({

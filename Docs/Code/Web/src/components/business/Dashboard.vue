@@ -14,7 +14,7 @@ import Cache from '@/utils/cache'
 import authService from '@/api/rest/auth'
 
 const MENUS = ["商品管理", "订单管理", "评论管理"]
-const PATHS = ["/business", "/business/order", "/business/comment"]
+const PATHS = ["/business", "/business/orders", "/business/comments"]
 
 export default {
   data () {

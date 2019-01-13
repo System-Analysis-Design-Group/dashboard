@@ -4,9 +4,7 @@ import FormUtil from '@/utils/form'
 const AccountsServicePrefix = "/AccountService"
 
 class AccountsService {
-  static (
-    ChineseStore = "Chinese"
-  )
+  static ChineseStore = "Chinese"
 
   static createAccount (formData) {
     let uploadData = {}

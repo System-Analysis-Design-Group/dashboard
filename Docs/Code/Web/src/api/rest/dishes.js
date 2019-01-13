@@ -18,9 +18,15 @@ class DishesService {
     })
   }
 
-  static fetchAllDishes(storeId) {
+  static getAllDishes (storeId) {
     return fetch({
       url: `${DishesServicePrefix}/dishes/store/${storeId}`,
+      method: 'get',
+    })
+  }
+  static getDishById (dishId) {
+    return fetch({
+      url: `${DishesServicePrefix}/dishes/${dishId}`,
       method: 'get',
     })
   }
