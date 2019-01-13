@@ -28,7 +28,6 @@ func (c *PermissionController) Get() {
 			tmp := []string{"comment_r", "comment_w", "menu_r", "menu_w", "order_r", "order_w"}
 			response := PermissionFound{PermissionInside{1, "owner", tmp}, 200, "ok"}
 			c.Data["json"] = &response
-
 		} else {
 			tmp := []string{"comment_r", "comment_w", "menu_r", "menu_w", "order_r", "order_w", "user_r", "user_w", "owner_r", "owner_w"}
 			response := PermissionFound{PermissionInside{2, "admin", tmp}, 200, "ok"}

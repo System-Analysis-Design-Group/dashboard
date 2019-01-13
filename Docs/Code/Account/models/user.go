@@ -60,6 +60,9 @@ func DeleteUser(id int64) bool {
 	o := orm.NewOrm()
 	if num, err := o.Delete(&User{UserID: id}); err == nil {
 		log.Println(num)
+		if num == 0 {
+			return false
+		}
 		return true
 	} else {
 		log.Println(err)

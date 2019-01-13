@@ -13,6 +13,52 @@ type StoreController struct {
 	beego.Controller
 }
 
+// SearchByUser 根据用户ID来搜索商店
+func (c *StoreController) SearchByUser() {
+	userid := c.Ctx.Input.Param(":userid")
+	UserID, err := strconv.ParseInt(userid, 10, 64)
+	if err != nil {
+		response := Simple{500, "输入不合法"}
+		c.Data["json"] = &response
+	} else {
+		num, store := models.SearchByUser(UserID)
+		f := FoundStore{}
+		f.NumFound = num
+		k := int(num)
+		for i := 0; i < k; i++ {
+			f.StoreId = append(f.StoreId, store[i].StoreID)
+		}
+		response := Found{f, 200, "ok"}
+		c.Data["json"] = &response
+		c.ServeJSON()
+	}
+}
+
+// SearchByID根据商店ID来搜索商店
+func (c *StoreController) SearchByID() {
+	storeid := c.Ctx.Input.Param(":storeid")
+	StoreID, err := strconv.ParseInt(storeid, 10, 64)
+	log.Println(StoreID)
+	if err != nil {
+		response := Simple{500, "输入不合法"}
+		c.Data["json"] = &response
+	} else {
+		store := models.SearchByID(StoreID)
+		reStore := Store{}
+		reStore.Name = store.Name
+		reStore.Phone = store.Phone
+		reStore.Type = store.StoreType
+		reStore.User_id = store.UserID
+		reStore.Address = store.Address
+		reStore.Longitude = store.Longitude
+		reStore.Latitude = store.Latitude
+		response := ReStore{reStore, 200, "ok"}
+		c.Data["json"] = &response
+		c.ServeJSON()
+	}
+}
+
+// Get 根据类型搜索商店
 func (c *StoreController) Get() {
 	ttype := c.Ctx.Input.Param(":type")
 	if ttype == "" {
@@ -28,7 +74,7 @@ func (c *StoreController) Get() {
 		c.Data["json"] = &response
 		c.ServeJSON()
 		//c.TplName = "postStore.html"
-		return
+		//return
 	}
 	num, store := models.GetStores(ttype)
 	log.Println(num, store)
@@ -44,6 +90,7 @@ func (c *StoreController) Get() {
 	//c.TplName = "postStore.html"
 }
 
+// Delete 根据商店ID，删除商店
 func (c *StoreController) Delete() {
 	StoreId := c.Ctx.Input.Param(":type")
 	id, err0 := strconv.ParseInt(StoreId, 10, 64)
@@ -63,6 +110,7 @@ func (c *StoreController) Delete() {
 	c.ServeJSON()
 }
 
+// Post 新增商家
 func (c *StoreController) Post() {
 	store := models.Store{}
 	json.Unmarshal(c.Ctx.Input.RequestBody, &store)

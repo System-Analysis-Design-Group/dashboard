@@ -31,7 +31,21 @@ func (c *CustomerController) Get() {
 			} else {
 				tmp = "admin"
 			}
-			response := Detail{Obj{user.Username, user.UserID, tmp}, 200, "ok"}
+			//查找该用户的商店
+			response := Detail2{}
+			if tmp == "owner" {
+				_, store := models.SearchByUser(id)
+				response.Obj2.Username = user.Username
+				response.Obj2.Userid = user.UserID
+				response.Obj2.Rolename = tmp
+				response.Code = 200
+				response.Message = "ok"
+				for _, item := range store {
+					response.Obj2.Stores = append(response.Obj2.Stores, item.StoreID)
+				}
+			} else {
+				response = Detail2{Obj2{user.Username, user.UserID, tmp, nil}, 200, "ok"}
+			}
 			c.Data["json"] = &response
 		} else {
 			response := Simple{500, "failed"}
