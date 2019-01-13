@@ -1,6 +1,7 @@
 package models
 
 import (
+	"fmt"
 	"log"
 
 	"github.com/astaxie/beego/orm"
@@ -55,4 +56,29 @@ func GetStoresifnull(t string) (int64, []Store) {
 		log.Println(err)
 	}
 	return num, store
+}
+
+func SearchByUser(t int64) (int64, []Store) {
+	o := orm.NewOrm()
+	var store []Store
+	num, err := o.Raw("select * from store where user_i_d = ?", t).QueryRows(&store)
+	if err != nil {
+		log.Println(err)
+	}
+	return num, store
+}
+
+func SearchByID(id int64) *Store {
+	o := orm.NewOrm()
+	store := Store{StoreID: id}
+	err := o.Read(&store)
+	if err == orm.ErrNoRows {
+		fmt.Println("查询不到")
+		return nil
+	} else if err == orm.ErrMissPK {
+		fmt.Println("找不到主键")
+		return nil
+	} else {
+		return &store
+	}
 }

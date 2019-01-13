@@ -7,12 +7,25 @@ type Simple struct {
 
 type Obj struct {
 	Username string `json:"username"`
-	Userid   int64  `json:"userid`
+	Userid   int64  `json:"userid"`
 	Rolename string `rolename:"rolename"`
+}
+
+type Obj2 struct {
+	Username string  `json:"username"`
+	Userid   int64   `json:"userid"`
+	Rolename string  `rolename:"rolename"`
+	Stores   []int64 `json:"store_id"`
 }
 
 type Detail struct {
 	Obj     `json:"obj"`
+	Code    int    `json:"code"`
+	Message string `json:"message"`
+}
+
+type Detail2 struct {
+	Obj2    `json:"obj"`
 	Code    int    `json:"code"`
 	Message string `json:"message"`
 }
@@ -55,4 +68,10 @@ type Store struct {
 	Address   string  `json:"address"`
 	Longitude float64 `json:"longitude"`
 	Latitude  float64 `json:"latitude"`
+}
+
+type ReStore struct {
+	Store   `json:"obj"`
+	Code    int    `json:"code"`
+	Message string `json:"message"`
 }
