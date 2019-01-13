@@ -29,7 +29,7 @@ class AccountsService {
       method: 'get',
     })
   }
-  static getUserAvator (userid) {
+  static getUserAvator (userId) {
     return fetch({
       url: `${AccountsServicePrefix}/Accounts/Avator/${userId}`,
       method: 'get',
@@ -66,7 +66,7 @@ class AccountsService {
     })
   }
   static getChineseStore () {
-    return _getSomeTypeOfStores(this.ChineseStore)
+    return this._getSomeTypeOfStores(this.ChineseStore)
   }
 }
 
