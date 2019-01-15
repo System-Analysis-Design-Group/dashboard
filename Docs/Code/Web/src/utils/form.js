@@ -1,4 +1,4 @@
-class FormUtil {
+class FormUtils {
   static isContainAttrs(obj, attrs) {
     for (const key of attrs) {
       if (obj[key] === undefined || obj[key] === null) {
@@ -19,4 +19,4 @@ class FormUtil {
   }
 }
 
-export default FormUtil
+export default FormUtils

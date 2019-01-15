@@ -7,21 +7,21 @@
         :options="options",
         v-model="selectedOptions",
         change-on-select,
-        @change="searchDishes"
       )
-      el-button.edit-button(icon="el-icon-more-outline", circle, title="编辑分类", @click="editOptionVisible = true", disabled)
     .content
       el-card.dishes-item(
         shadow="hover",
         :body-style="{ padding: '0px' }",
+        v-for="dish in shownDishesData",
+        :key="dish.id",
       )
-        img.image(src="http://element-cn.eleme.io/static/hamburger.50e4091.png")
+        img.image(:src="dish.imagePath")
         .item-content
-          .name 鸡蛋瘦肉肠+手工沙县蒸饺(十只)
+          .name {{dish.name}}
           .price
-            span.cur-price ￥11
-            span.old-price ￥15
-        .item-operation(title="更多操作", @click="showEditFormDialog")
+            span.cur-price ￥{{dish.cuPrice}}
+            span.old-price ￥{{dish.orPrice}}
+        .item-operation(title="更多操作", @click="showEditFormDialog(dish)")
           .edit-button.el-icon-more-outline
       el-card.dishes-item.dishes-item--add(
         shadow="hover",
@@ -29,23 +29,6 @@
         @click.native="showCreateFormDialog",
       )
         .el-icon-plus.add-button
-    el-dialog.option-dialog(v-if="editOptionVisible", title="编辑餐品分类", :visible.sync="editOptionVisible")
-      el-tag.option-item(
-        v-for="op in options",
-        :key="op.label"
-        closable,
-        :disable-transitions="false",
-        @close="removeOption(op)",
-      ) {{op.label}}
-      el-input.new-option-input(
-        v-if="optionInputVisible",
-        v-model="optionInputValue",
-        ref="saveOptionInput"
-        size="small"
-        @keyup.enter.native="addOption"
-        @blur="addOption"
-      )
-      el-button.new-option-button(v-else size="small" @click="showInput") + 新建分类
 
     dish-form-dialog(
       :visible.sync="editDialogVisible",
@@ -59,75 +42,78 @@
 <script>
 import auth from '@/api/rest/auth.js'
 import DishFormDialog from './dialogs/DishFormDialog'
+import FormUtils from '@/utils/form'
+import UserUtils from '@/utils/user'
+import DishesService from '@/api/rest/dishes'
 
 export default {
   data () {
     return {
-      options: [{
-        value: '1',
-        label: '主食'
-      }, {
-        value: '2',
-        label: '小吃'
-      }],
+      dishesData: [],
       selectedOptions: [],
       editDialogVisible: false,
-      editOptionVisible: false,
-      optionInputVisible: false,
-      optionInputValue: '',
       isEditForm: false,
-      editData: {
-        id: 122,
-        name: 'hhhh',
-        typeName: 'sss',
-        orPrice: 0.01,
-        cuPrice: 0.98,
-        description: 'ssss',
-      }
+      editData: {},
+      loading: null,
     }
+  },
+  mounted() {
+    this.loadData()
   },
   methods: {
     loadData () {
-      console.log("test")
+      this.openLoading()
+      DishesService.getAllDishes(UserUtils.getStoreId())
+        .then(res => this.dishesData = res.data.obj)
+        .catch(_ => this.showError("加载数据失败"))
+        .finally(_ => this.closeLoading())
     },
     showCreateFormDialog () {
       this.isEditForm = false
       this.editDialogVisible = true
     },
-    showEditFormDialog () {
+    showEditFormDialog (dish) {
+      FormUtils.assignTo(dish, this.editData, ["id", "name", "typeName", "orPrice", "cuPrice", "description"])
       this.isEditForm = true
       this.editDialogVisible = true
     },
-    searchDishes () {
-      // TODO: this.selectedOptions
-    },
-    removeOption (option) {
-      this.options = this.options.filter((op) => {
-        return op.label !== option.label
+    openLoading () {
+      this.loading = this.$loading({
+        lock: true,
+        text: '加载数据中',
+        spinner: 'el-icon-loading',
+        background: 'rgba(0, 0, 0, 0.7)'
       })
-      // TODO: update
     },
-    addOption () {
-      this.optionInputVisible = false
-      if (!this.optionInputValue) return;
-      if (this.options.find(op => op.label == this.optionInputValue)) return;
-      this.options.push({
-        label: this.optionInputValue,
-        value: this.optionInputValue,
-      })
-      this.optionInputValue = ''
-      // TODO: update
+    closeLoading () {
+      if (!this.loading) return
+      this.loading.close()
+      this.loading = null
     },
-    showInput () {
-      this.optionInputVisible = true
-      this.$nextTick(_ => {
-        this.$refs.saveOptionInput.$refs.input.focus()
+    showError (message) {
+      this.$message({
+        showClose: true,
+        message: message,
+        type: 'error'
       })
+    },
+  },
+  computed: {
+    options () {
+      return [...new Set(this.dishesData.map(dish => dish.typeName))].map(op => {
+        return {
+          value: op,
+          label: op
+        }
+      })
+    },
+    shownDishesData () {
+      return !this.selectedOptions[0] ? this.dishesData : this.dishesData.filter(dishes => dishes.typeName === this.selectedOptions[0])
     }
   },
   components: {
     'dish-form-dialog': DishFormDialog
-  }
+  },
 }
 </script>
 

@@ -1,6 +1,8 @@
 import fetch from '@/api/fetch.js'
 import FormUtil from '@/utils/form'
 
+import Mocker from '../mocker'
+
 const DishesServicePrefix = "/DishesService"
 
 class DishesService {
@@ -19,10 +21,11 @@ class DishesService {
   }
 
   static getAllDishes (storeId) {
-    return fetch({
-      url: `${DishesServicePrefix}/dishes/store/${storeId}`,
-      method: 'get',
-    })
+    return Mocker.getAllDishes(storeId)
+    // return fetch({
+    //   url: `${DishesServicePrefix}/dishes/store/${storeId}`,
+    //   method: 'get',
+    // })
   }
   static getDishById (dishId) {
     return fetch({

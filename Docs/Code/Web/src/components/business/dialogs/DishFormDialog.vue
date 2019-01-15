@@ -189,6 +189,9 @@ export default {
       if (val != this.dialogVisible) {
         this.dialogVisible = val
       }
+      if (this.isEdit && this.visible) {
+        this.updateFormData()
+      }
     },
     isEdit (val) {
       this.updateFormData()

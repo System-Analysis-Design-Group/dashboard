@@ -15,6 +15,7 @@
 
 <script>
 import Cache from '@/utils/cache'
+import UserUtils from '@/utils/user'
 import authService from '@/api/rest/auth.js'
 
 export default {
@@ -37,6 +38,7 @@ export default {
   },
   mounted () {
     Cache.removeToken()
+    UserUtils.removeUserInfo()
   },
   methods: {
     login () {
@@ -44,28 +46,28 @@ export default {
         if (isValid) {
           authService.login(this.loginForm)
             .then(success => {
-              let token = success.data.data.token
+              let {token, obj} = success.data
               Cache.setToken(token)
+              UserUtils.setUserInfo(obj)
               this.$router.push('/dashboard')
             }).catch(fail => {
-              this.$message({
-                showClose: true,
-                message: '登陆失败，请再次检查账号和密码',
-                type: 'error'
-              })
+              this.showError('登陆失败，请再次检查账号和密码')
             })
         } else {
-          this.$message({
-            showClose: true,
-            message: '请输入正确的账号密码',
-            type: 'error'
-          })
+          this.showError('请输入正确的账号密码')
           return false
         }
       })
     },
-    signin() {
+    signin () {
       this.$router.push({ name: 'signin' })
+    },
+    showError (msg) {
+      this.$message({
+        showClose: true,
+        message: msg,
+        type: 'error'
+      })
     }
   }
 }

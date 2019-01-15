@@ -1,6 +1,7 @@
 const formValueObj = value => ({ value })
 const getRealVal = obj => obj && obj.value
 const tokenKey = window.config.tokenKey
+const infoKey = window.config.infoKey
 const Cache = {
   sessionGet(key) {
     try {
