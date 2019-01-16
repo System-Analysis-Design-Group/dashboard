@@ -36,11 +36,11 @@ class UserUtils {
   }
   static getStoreId () {
     let userInfo = this.userInfoProxy.getVal()
-    return userInfo && userInfo.rolename === this.RoleBusiness ? userInfo.store_id[0] : null
+    return userInfo && userInfo.store_id && userInfo.rolename === this.RoleBusiness ? userInfo.store_id[0] : null
   }
   static getUserId () {
     let userInfo = this.userInfoProxy.getVal()
-    return userInfo ? userInfo.id : null
+    return userInfo ? userInfo.userid : null
   }
   static isBusiness () {
     let userInfo = this.userInfoProxy.getVal()
