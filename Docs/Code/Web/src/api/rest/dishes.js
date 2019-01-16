@@ -21,11 +21,10 @@ class DishesService {
   }
 
   static getAllDishes (storeId) {
-    return Mocker.getAllDishes(storeId)
-    // return fetch({
-    //   url: `${DishesServicePrefix}/dishes/store/${storeId}`,
-    //   method: 'get',
-    // })
+    return fetch({
+      url: `${DishesServicePrefix}/dishes/store/${storeId}`,
+      method: 'get',
+    })
   }
   static getDishById (dishId) {
     return fetch({
