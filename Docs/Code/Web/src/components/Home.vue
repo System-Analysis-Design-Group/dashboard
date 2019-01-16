@@ -16,7 +16,8 @@
 <script>
 import Cache from '@/utils/cache'
 import UserUtils from '@/utils/user'
-import authService from '@/api/rest/auth.js'
+import authService from '@/api/rest/auth'
+import AccountsService from '@/api/rest/accounts'
 
 export default {
   name: 'Home',
@@ -48,8 +49,12 @@ export default {
             .then(success => {
               let {token, obj} = success.data
               Cache.setToken(token)
-              UserUtils.setUserInfo(obj)
-              this.$router.push('/business')
+              let userid = obj.userid
+              AccountsService.getUserInfo(userid)
+                .then(res => {
+                  UserUtils.setUserInfo(res.data.obj)
+                  this.$router.push('/business')
+                })              
             }).catch(fail => {
               this.showError('登陆失败，请再次检查账号和密码')
             })
