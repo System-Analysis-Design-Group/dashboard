@@ -9,7 +9,7 @@
 import auth from '@/api/rest/auth.js'
 
 export default {
-  name: 'signin',
+  name: 'signup',
   data () {
     return {
     }

@@ -6,7 +6,7 @@ Vue.use(VueRouter)
 import Cache from '@/utils/cache';
 
 import Home from '@/components/Home'
-import Signin from '@/components/Signin'
+import Signup from '@/components/Signup'
 import NormalNav from '@/components/navigation/normal'
 import BusinessNav from '@/components/navigation/business'
 import BusinessDashboard from '@/components/business/dashboard'
@@ -25,11 +25,11 @@ let router = new VueRouter({
       }
     },
     {
-      path: '/signin',
-      name: 'signin',
+      path: '/signup',
+      name: 'signup',
       components: {
         navigation: NormalNav,
-        content: Signin
+        content: Signup
       }
     },
     {
