@@ -31,6 +31,9 @@ fetch.interceptors.request.use(
 // 响应拦截器
 fetch.interceptors.response.use(
   (response) => {
+    if (response.data.code == 500) {
+      return Promise.reject(new Error(response.data.message))
+    }
     return response
   },
   (error) => {
