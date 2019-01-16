@@ -11,7 +11,7 @@ class DishesService {
   static _uploadDishes(formData, method) {
     let uploadData = {}
     FormUtil.assignTo(formData, uploadData, [
-      "name", "storeId", "typeName", "description", "orPrice", "cuPrice",
+      "id", "name", "storeId", "typeName", "description", "orPrice", "cuPrice",
     ])
     return fetch({
       url: `${DishesServicePrefix}/dishes`,

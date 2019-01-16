@@ -36,11 +36,12 @@
 import DishesService from '@/api/rest/dishes'
 import Cache from '@/utils/cache'
 import FormUtil from '@/utils/form'
+import UserUtils from '@/utils/user'
 const TOKEN_KEY = window.config.tokenKey
 
 const defaultFormData = {
   id: 0,
-  storeId: 0, // TODO: 从Cache中取
+  storeId: UserUtils.getStoreId(),
   name: '',
   typeName: '',
   orPrice: 0,
@@ -106,12 +107,15 @@ export default {
       }
     },
     handleUploadFileFail (err, file, fileList) {
+      this.$refs.uploader.clearFiles()
       this.closeLoading()
       this.showError("上传图片失败")
     },
     handleUploadFileSuccess (response, file, fileList) {
+      this.$refs.uploader.clearFiles()
       this.$emit("has-update")
       this.closeLoading()
+      this.dialogVisible = false
     },
     handleConfirm (formName) {
       this.$refs[formName].validate((valid) => {
@@ -199,6 +203,7 @@ export default {
   },
   computed: {
     uploadUrl () {
+      // return `http://172.18.233.33:9999/dishes/${this.form.id}`
       return `/api${DishesService.ServicePrefix}/dishes/${this.form.id}`
     }
   },

@@ -15,7 +15,7 @@
         v-for="dish in shownDishesData",
         :key="dish.id",
       )
-        img.image(:src="dish.imagePath")
+        img.image(:src="imgUrl(dish.imagePath)")
         .item-content
           .name {{dish.name}}
           .price
@@ -67,6 +67,11 @@ export default {
         .then(res => this.dishesData = res.data.obj)
         .catch(_ => this.showError("加载数据失败"))
         .finally(_ => this.closeLoading())
+    },
+    imgUrl (url) {
+      if (url) {
+        return `/api${DishesService.ServicePrefix}/${url.substring(2)}`
+      }
     },
     showCreateFormDialog () {
       this.isEditForm = false

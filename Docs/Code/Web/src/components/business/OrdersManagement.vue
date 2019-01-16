@@ -21,11 +21,12 @@
 <script>
 import OrdersService from '@/api/rest/orders'
 import OrderDetailDialog from './dialogs/OrderDetailDialog'
+import UserUtils from '@/utils/user'
 
 export default {
   data () {
     return {
-      ordersData: [{"userID":124,"storeID":123,"addressID":123,"numGoods":0,"date":"Tue Dec 25 13:47:54 CST 2018","state":1,"id":14,"goodsInfo":[{"num":2,"unitPrice":20.0,"id":3,"dishId":1},{"num":1,"unitPrice":15.0,"id":4,"dishId":2}]}],
+      ordersData: [],
       options: [{
         value: OrdersService.PaidedStatus,
         label: '已支付'
@@ -39,9 +40,20 @@ export default {
       selectedOptions: [OrdersService.PaidedStatus],
       dialogVisible: false,
       orderId: 0,
+      loading: null,
     }
   },
+  mounted() {
+    this.updateOrdersData()
+  },
   methods: {
+    updateOrdersData () {
+      this.openLoading()
+      OrdersService.getAllOrderOfStore(UserUtils.getStoreId())
+        .then(res => this.ordersData = res.data.obj)
+        .catch(err => this.showError("加载数据失败"))
+        .finally(_ => this.closeLoading())
+    },
     handleLook (row) {
       this.dialogVisible = true
       this.orderId = row.id
@@ -53,6 +65,19 @@ export default {
     handleReject (row) {
       OrdersService.rejectOrder(row.id)
         .catch(err => this.showError("操作失败"))
+    },
+    openLoading () {
+      this.loading = this.$loading({
+        lock: true,
+        text: '加载数据中',
+        spinner: 'el-icon-loading',
+        background: 'rgba(0, 0, 0, 0.7)'
+      })
+    },
+    closeLoading () {
+      if (!this.loading) return
+      this.loading.close()
+      this.loading = null
     },
     showError (message) {
       this.$message({
