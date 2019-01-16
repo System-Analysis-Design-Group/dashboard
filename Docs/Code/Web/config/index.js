@@ -11,11 +11,32 @@ module.exports = {
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
-      '/api': {
+      '/api/AccountService': {
         target: 'http://172.18.233.33:9090', // test
         changeOrigin: true,
         pathRewrite: {
           '^/api/AccountService': ''
+        }
+      },
+      '/api/DishesService': {
+        target: 'http://172.18.233.33:9999', // test
+        changeOrigin: true,
+        pathRewrite: {
+          '^/api/DishesService': ''
+        }
+      },
+      '/api/OrdersService': {
+        target: 'http://172.18.233.33:9999', // test
+        changeOrigin: true,
+        pathRewrite: {
+          '^/api/OrdersService': ''
+        }
+      },
+      '/api/CommentsService': {
+        target: 'http://172.18.233.33:9999', // test
+        changeOrigin: true,
+        pathRewrite: {
+          '^/api/CommentsService': ''
         }
       }
     },
