@@ -17,8 +17,8 @@ class AuthService {
   }
   static logout() {
     return fetch({
-      url: `${AuthServicePrefix}/logout`,
-      method: 'post',
+      url: `${AuthServicePrefix}/Accounts/logout`,
+      method: 'get',
     })
   }
 }

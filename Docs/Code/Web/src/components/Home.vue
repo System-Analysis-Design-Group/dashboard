@@ -10,7 +10,7 @@
           el-input(type="password", v-model="loginForm.password", auto-complete="off", @keyup.enter.native="login")
       .login-footer
         el-button.login-button(type="primary", plain, @click="login") 登陆
-        el-button(type="text", @click="signin") 没有账号？注册成为商家
+        el-button(type="text", @click="signup") 没有账号？注册成为商家
 </template>
 
 <script>
@@ -28,10 +28,10 @@ export default {
       },
       rules: {
         username: [
-          { required: true, message: '请输入用户名', trigger: 'change' }
+          { required: true, message: '请输入用户名', trigger: 'blur' }
         ],
         password: [
-          { required: true, message: '请输入密码', trigger: 'change' }
+          { required: true, message: '请输入密码', trigger: 'blur' }
         ]
       }
     }
@@ -49,7 +49,7 @@ export default {
               let {token, obj} = success.data
               Cache.setToken(token)
               UserUtils.setUserInfo(obj)
-              this.$router.push('/dashboard')
+              this.$router.push('/business')
             }).catch(fail => {
               this.showError('登陆失败，请再次检查账号和密码')
             })
@@ -59,8 +59,8 @@ export default {
         }
       })
     },
-    signin () {
-      this.$router.push({ name: 'signin' })
+    signup () {
+      this.$router.push({ name: 'signup' })
     },
     showError (msg) {
       this.$message({
