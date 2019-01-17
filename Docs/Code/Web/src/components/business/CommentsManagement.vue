@@ -1,13 +1,17 @@
 <template lang="pug">
-  div.comments-management
-    el-card.comment-item(v-for="comment in comments", :key="comment.id", shadow="never")
-      div {{comment.content}}
+  el-card.comments-management
+    el-table(:data="comments" stripe)
+      el-table-column(prop="customer" label="顾客" width=200)
+      el-table-column(prop="target" label="对象" width=200 :filters="filters" :filter-method="filterHandler")
+      el-table-column(prop="content" label="评论")
 </template>
 
 <script>
 import FormUtils from '@/utils/form'
 import UserUtils from '@/utils/user'
 import CommentsService from '@/api/rest/comments'
+import AccountsService from '@/api/rest/accounts'
+import DishesService from '@/api/rest/dishes'
 
 export default {
   data () {
@@ -21,14 +25,36 @@ export default {
     this.loadData()
   },
   methods: {
-    loadData () {
+    async loadData () {
       this.openLoading()
-      CommentsService.getCommentsByStore(UserUtils.getStoreId())
-        .then(res => {
-          this.comments = res.data
+      try {
+        let comments = (await CommentsService.getCommentsByStore(UserUtils.getStoreId())).data
+        let customersPromises = comments.map(comment => AccountsService.getUserInfo(comment.userId))
+        let customers = (await Promise.all(customersPromises)).map(res => res.data.obj)
+        let dishesPromises = comments.map((comment) => {
+          if (comment.dishId == null) {
+            return Promise.resolve(null)
+          } else {
+            return DishesService.getDishById(comment.dishId)
+          }
         })
-        .catch(_ => this.showError("加载数据失败"))
-        .finally(_ => this.closeLoading())
+        let dishes = (await Promise.all(dishesPromises)).map((res) => {
+          if (res) return res.data.obj
+          else return null
+        })
+        for (let i = 0; i < comments.length; i++) {
+          comments[i].customer = customers[i].username
+          if (dishes[i])
+            comments[i].target = dishes[i].name
+          else
+            comments[i].target = '餐馆'
+        }
+        this.comments = comments
+      } catch (err) {
+        this.showError(err.message)
+      } finally {
+        this.closeLoading()
+      }
     },
     openLoading () {
       this.loading = this.$loading({
@@ -50,13 +76,26 @@ export default {
         type: 'error'
       })
     },
+    filterHandler(value, row, column) {
+      return row.target === value;
+    }
   },
+  computed: {
+    filters () {
+      return [...new Set(this.comments.map(comment => comment.target))].map(target => {
+        return {
+          text: target,
+          value: target
+        }
+      })
+    }
+  }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  .comment-item {
-    margin: 10px
+  .comments-management {
+    margin: 20px 10%
   }
 </style>
