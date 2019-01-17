@@ -2,12 +2,8 @@
   .dishes-management
     .types-selector
       span.label 餐品分类：
-      el-cascader(
-        placeholder="选择类别"
-        :options="options",
-        v-model="selectedOptions",
-        change-on-select,
-      )
+      el-select(clearable placeholder="选择类别" v-model="selectedOption")
+        el-option(v-for="item in options" :key="item.value" :label="item.label" :value="item.value")
     .content
       el-card.dishes-item(
         shadow="hover",
@@ -21,7 +17,7 @@
           .price
             span.cur-price ￥{{dish.cuPrice}}
             span.old-price ￥{{dish.orPrice}}
-        .item-operation(title="更多操作", @click="showEditFormDialog(dish)")
+        .item-operation(title="编辑餐品", @click="showEditFormDialog(dish)")
           .edit-button.el-icon-more-outline
       el-card.dishes-item.dishes-item--add(
         shadow="hover",
@@ -50,7 +46,7 @@ export default {
   data () {
     return {
       dishesData: [],
-      selectedOptions: [],
+      selectedOption: '',
       editDialogVisible: false,
       isEditForm: false,
       editData: {},
@@ -108,7 +104,7 @@ export default {
       })
     },
     shownDishesData () {
-      return !this.selectedOptions[0] ? this.dishesData : this.dishesData.filter(dishes => dishes.typeName === this.selectedOptions[0])
+      return !this.selectedOption ? this.dishesData : this.dishesData.filter(dishes => dishes.typeName === this.selectedOption)
     }
   },
   components: {
