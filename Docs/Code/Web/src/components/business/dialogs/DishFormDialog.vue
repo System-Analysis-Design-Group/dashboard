@@ -134,8 +134,9 @@ export default {
             uploadDataPromise = DishesService.createDishes(this.form)
           }
           uploadDataPromise.then(res => {
-            if (res.obj && obj.id && !this.isEdit) {
-              this.form.id = obj.id
+            if (res.data && res.data.obj && res.data.obj.id && !this.isEdit) {
+              this.form.id = res.data.obj.id
+              this.$refs.uploader.$refs['upload-inner'].action = this.uploadUrl
             }
             if (hasFile) {
               this.uploadHeader[TOKEN_KEY] = "Bearer " + Cache.getToken()
@@ -204,7 +205,6 @@ export default {
   },
   computed: {
     uploadUrl () {
-      // return `http://172.18.233.33:9999/dishes/${this.form.id}`
       return `/api${DishesService.ServicePrefix}/dishes/${this.form.id}`
     }
   },
