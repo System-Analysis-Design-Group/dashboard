@@ -11,7 +11,7 @@
         v-for="dish in shownDishesData",
         :key="dish.id",
       )
-        img.image(:src="dish.imagePath")
+        img.image(:src="imgUrl(dish.id)")
         .item-content
           .name {{dish.name}}
           .price
@@ -31,7 +31,7 @@
       :title="isEditForm ? '编辑餐品' : '新建餐品'",
       :isEdit="isEditForm",
       :editData="editData",
-      @has-update="loadData"
+      @has-update="reload"
     )
 </template>
 
@@ -57,6 +57,9 @@ export default {
     this.loadData()
   },
   methods: {
+    reload () {
+      this.$router.go(0)
+    },
     loadData () {
       this.openLoading()
       DishesService.getAllDishes(UserUtils.getStoreId())
@@ -64,12 +67,17 @@ export default {
         .catch(_ => this.showError("加载数据失败"))
         .finally(_ => this.closeLoading())
     },
+    imgUrl (id) {
+      if (id) {
+        return `/api${DishesService.ServicePrefix}/dishes/images/${id}`
+      }
+    },
     showCreateFormDialog () {
       this.isEditForm = false
       this.editDialogVisible = true
     },
     showEditFormDialog (dish) {
-      FormUtils.assignTo(dish, this.editData, ["id", "name", "typeName", "orPrice", "cuPrice", "description"])
+      FormUtils.assignTo(dish, this.editData, ["id", "name", "typeName", "orPrice", "cuPrice", "description", "imagePath"])
       this.isEditForm = true
       this.editDialogVisible = true
     },

@@ -48,12 +48,17 @@ export default {
           authService.login(this.loginForm)
             .then(success => {
               let {token, obj} = success.data
-              Cache.setToken(token)
               let userid = obj.userid
-              AccountsService.getUserInfo(userid)
+              return AccountsService.getUserInfo(userid)
                 .then(res => {
                   UserUtils.setUserInfo(res.data.obj)
-                  this.$router.push('/business')
+                  if (UserUtils.isBusiness()) {
+                    Cache.setToken(token)
+                    this.$router.push('/business')
+                  } else {
+                    this.showError('该用户目前尚未有商店')
+                    UserUtils.removeUserInfo()
+                  }
                 })              
             }).catch(fail => {
               this.showError('登陆失败，请再次检查账号和密码')
