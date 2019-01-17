@@ -46,6 +46,7 @@ const defaultFormData = {
   typeName: '',
   orPrice: 0,
   cuPrice: 0,
+  imagePath: '',
   description: '',
 }
 

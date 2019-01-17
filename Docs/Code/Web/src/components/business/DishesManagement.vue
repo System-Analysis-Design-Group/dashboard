@@ -35,7 +35,7 @@
       :title="isEditForm ? '编辑餐品' : '新建餐品'",
       :isEdit="isEditForm",
       :editData="editData",
-      @has-update="loadData"
+      @has-update="reload"
     )
 </template>
 
@@ -61,6 +61,9 @@ export default {
     this.loadData()
   },
   methods: {
+    reload () {
+      this.$router.go(0)
+    },
     loadData () {
       this.openLoading()
       DishesService.getAllDishes(UserUtils.getStoreId())
@@ -78,7 +81,7 @@ export default {
       this.editDialogVisible = true
     },
     showEditFormDialog (dish) {
-      FormUtils.assignTo(dish, this.editData, ["id", "name", "typeName", "orPrice", "cuPrice", "description"])
+      FormUtils.assignTo(dish, this.editData, ["id", "name", "typeName", "orPrice", "cuPrice", "description", "imagePath"])
       this.isEditForm = true
       this.editDialogVisible = true
     },
