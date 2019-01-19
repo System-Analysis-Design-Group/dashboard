@@ -28,6 +28,9 @@ export default {
     return {
       ordersData: [],
       options: [{
+        value: OrdersService.UnpaidStatus,
+        label: '未支付'
+      }, {
         value: OrdersService.PaidedStatus,
         label: '已支付'
       }, {
@@ -37,7 +40,7 @@ export default {
         value: OrdersService.RejectedStatus,
         label: '已拒绝'
       }],
-      selectedOptions: [OrdersService.PaidedStatus],
+      selectedOptions: [OrdersService.UnpaidStatus],
       dialogVisible: false,
       orderId: 0,
       loading: null,

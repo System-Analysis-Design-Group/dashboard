@@ -96,6 +96,6 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
   .comments-management {
-    margin: 20px 10%
+    margin: 20px;
   }
 </style>

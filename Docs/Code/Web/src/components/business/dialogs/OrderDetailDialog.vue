@@ -31,7 +31,7 @@ export default {
   data () {
     return {
       dialogVisible: this.visible,
-      goodsInfo: [{"num":2,"unitPrice":20.0,"id":3,"dishId":1,"name":'测试'}]
+      goodsInfo: []
     }
   },
   mounted() {
@@ -39,10 +39,12 @@ export default {
   },
   methods: {
     async getOrderDatail () {
-      let order = await OrdersService.getOrderDetail(this.orderId)
+      let res = await OrdersService.getOrderDetail(this.orderId)
+      let order = res.data.obj
       let goodsInfo = order.goodsInfo
       let dishesPromiseArr = goodsInfo.map(good => DishesService.getDishById(good.dishId))
-      let dishesInfo = await Promise.all(dishesPromiseArr)
+      let dishesInfoRes = await Promise.all(dishesPromiseArr)
+      let dishesInfo = dishesInfoRes.map(info => info.data.obj)
       order.goodsInfo.forEach(good => {
         good.detail = dishesInfo.find(dish => dish.id === good.dishId)
         good.name = good.detail.name

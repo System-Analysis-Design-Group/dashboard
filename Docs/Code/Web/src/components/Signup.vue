@@ -3,17 +3,17 @@
     el-card.signup-box
       .signup-header(slot="header")
         |「吃点啥」注册窗口
-      el-form.signup-form(v-if="!accountCreated", :model="userForm", label-width="100px", :rules="userRules", status-icon, ref="userForm")
+      el-form.signup-form(v-if="!accountCreated", :model="userForm", :rules="userRules", status-icon, ref="userForm")
         el-form-item(label="用户名：", prop="username")
           el-input(v-model="userForm.username")
         el-form-item(label="密码：", prop="password")
           el-input(type="password", v-model="userForm.password")
         el-form-item(label="确认密码：", prop="checkPassword")
           el-input(type="password", v-model="userForm.checkPassword")
-      el-form.signup-form(v-else, :model="storeForm", label-width="100px", :rules="storeRules", status-icon, ref="storeForm")
+      el-form.signup-form(v-else, :model="storeForm", label-width="70px", :rules="storeRules", status-icon, ref="storeForm")
         el-form-item(label="店名：", prop="name")
           el-input(v-model="storeForm.name")
-        el-form-item(label="联系方式：", prop="phone")
+        el-form-item(label="手机：", prop="phone")
           el-input(v-model="storeForm.phone")
         el-form-item(label="菜系：", prop="type")
           el-input(v-model="storeForm.type")
@@ -162,7 +162,6 @@ export default {
 
   .signup-footer {
     width: 100%;
-    padding: 10px 20px;
     box-sizing: border-box;
   }
 
