@@ -47,7 +47,6 @@ class AccountsService {
       method: 'get',
     })
   }
-  // 例如{ "name": "KFC", "phone": "123456789", "type": "Chinese food", "user_id": 123, "address": "Wall Street", "longitude": 123.123, "latitude": 231.231 }
   static createStore (formData) {
     let uploadData = {}
     FormUtil.assignTo(formData, uploadData, [

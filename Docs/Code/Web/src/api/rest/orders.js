@@ -42,8 +42,6 @@ class OrdersService {
     })
   }
 
-  // 以下API是客户端使用的，前端可以做测试
-  // 例子: {"userID":123,"storeID":123,"addressID":123,"numGoods":2,"state":0,"goodsInfo":[{"num":2,"unitPrice":20.0,"dishId":1},{"num":1,"unitPrice":15.0,"dishId":2}]}}
   static createOrder (formData) {
     let uploadData = {}
     FormUtil.assignTo(formData, uploadData, [

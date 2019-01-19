@@ -1,8 +1,6 @@
 import fetch from '@/api/fetch.js'
 import FormUtil from '@/utils/form'
 
-import Mocker from '../mocker'
-
 const DishesServicePrefix = "/DishesService"
 
 class DishesService {

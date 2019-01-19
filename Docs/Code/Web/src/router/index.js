@@ -50,33 +50,15 @@ let router = new VueRouter({
         component: BusinessCommentsManagement
       }]
     },
-    // {
-    //   path: '/dashboard',
-    //   name: 'dashboard',
-    //   components: {
-    //     navigation: Navigation,
-    //     content: Dashboard
-    //   },
-    //   children: [{
-    //     path: '',
-    //     component: CategoryManagement
-    //   }, {
-    //     path: 'review',
-    //     component: AnalysisReview
-    //   }, {
-    //     path: 'download',
-    //     component: DownloadManagement
-    //   }]
-    // },
   ]
 })
 
-// router.beforeEach((to, from, next) => {
-//   if (to.name !== 'signin' && to.name !== 'login' && !Cache.getToken()) {
-//     router.push({ name: 'login' })
-//   } else {
-//     next()
-//   }
-// })
+router.beforeEach((to, from, next) => {
+  if (to.name !== 'signup' && to.name !== 'login' && !Cache.getToken()) {
+    router.push({ name: 'login' })
+  } else {
+    next()
+  }
+})
 
 export default router
