@@ -8,13 +8,13 @@ type Simple struct {
 type Obj struct {
 	Username string `json:"username"`
 	Userid   int64  `json:"userid"`
-	Rolename string `rolename:"rolename"`
+	Rolename string `json:"rolename"`
 }
 
 type Obj2 struct {
 	Username string  `json:"username"`
 	Userid   int64   `json:"userid"`
-	Rolename string  `rolename:"rolename"`
+	Rolename string  `json:"rolename"`
 	Stores   []int64 `json:"store_id"`
 }
 

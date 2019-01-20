@@ -44,11 +44,16 @@ func (c *CustomerController) Get() {
 					response.Obj2.Stores = append(response.Obj2.Stores, item.StoreID)
 				}
 			} else {
-				response = Detail2{Obj2{user.Username, user.UserID, tmp, nil}, 200, "ok"}
+				response = Detail2{
+					Obj2{user.Username, user.UserID, tmp, nil},
+					200,
+					"ok"}
 			}
 			c.Data["json"] = &response
 		} else {
-			response := Simple{500, "failed"}
+			response := Simple{
+				500,
+				"failed"}
 			c.Data["json"] = &response
 		}
 	}
@@ -63,10 +68,14 @@ func (c *CustomerController) Delete() {
 	} else {
 		isSuccess := models.DeleteUser(id)
 		if isSuccess == true {
-			response := Simple{200, "ok"}
+			response := Simple{
+				200,
+				"ok"}
 			c.Data["json"] = &response
 		} else {
-			response := Simple{500, "failed"}
+			response := Simple{
+				500,
+				"failed"}
 			c.Data["json"] = &response
 		}
 	}
